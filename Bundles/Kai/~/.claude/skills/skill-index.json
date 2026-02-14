@@ -1,27 +1,14 @@
 {
-  "generated": "2025-01-01T00:00:00.000Z",
-  "totalSkills": 2,
+  "generated": "2026-02-14T00:00:00.000Z",
+  "totalSkills": 35,
   "alwaysLoadedCount": 1,
-  "deferredCount": 1,
+  "deferredCount": 34,
   "skills": {
     "core": {
       "name": "CORE",
       "path": "CORE/SKILL.md",
       "fullDescription": "Personal AI Infrastructure core. AUTO-LOADS at session start. USE WHEN any session begins OR user asks about identity, response format, contacts, stack preferences.",
-      "triggers": [
-        "any",
-        "session",
-        "begins",
-        "user",
-        "asks",
-        "about",
-        "identity",
-        "response",
-        "format",
-        "contacts",
-        "stack",
-        "preferences"
-      ],
+      "triggers": ["session", "identity", "response-format", "contacts", "stack", "preferences"],
       "workflows": [],
       "tier": "always"
     },
@@ -29,14 +16,272 @@
       "name": "CreateSkill",
       "path": "CreateSkill/SKILL.md",
       "fullDescription": "Create and validate skills. USE WHEN create skill, new skill, skill structure, canonicalize. SkillSearch('createskill') for docs.",
-      "triggers": [
-        "create",
-        "skill",
-        "new",
-        "structure",
-        "canonicalize"
-      ],
+      "triggers": ["create", "skill", "new", "structure", "canonicalize"],
       "workflows": [],
+      "tier": "deferred"
+    },
+    "design": {
+      "name": "Design",
+      "path": "Design/SKILL.md",
+      "fullDescription": "Master design orchestrator for frontend work. USE WHEN working on CSS, components, UI, UX, styling, layout, responsive design, accessibility, a11y. Auto-triggers on frontend files. Finds or creates design specs. Invokes design:ux, design:a11y, design:responsive, design:trends sub-skills.",
+      "triggers": ["design", "css", "component", "UI", "UX", "styling", "layout", "responsive", "accessibility", "a11y", "frontend"],
+      "workflows": ["Workflows/DesignAudit.md", "Workflows/CreateDesignSpec.md", "Workflows/ImplementDesign.md"],
+      "tier": "deferred"
+    },
+    "animationcopycat": {
+      "name": "AnimationCopycat",
+      "path": "AnimationCopycat/SKILL.md",
+      "fullDescription": "Analyze video frames to reverse-engineer animations and produce Remotion recreation plans adapted to the Invela design system. USE WHEN recreating animations, analyzing video frames, copying animation styles, or planning Remotion compositions from reference material.",
+      "triggers": ["animation", "video", "frames", "remotion", "reverse-engineer", "copycat", "motion"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "invela-brand": {
+      "name": "invela-brand",
+      "path": "invela-brand/SKILL.md",
+      "fullDescription": "Use when working on Invela design system, UI components, or any visual design decisions. Provides verified brand colors, typography, iconography guidelines. Self-improving - updates with brand changes.",
+      "triggers": ["invela", "brand", "colors", "typography", "design-system", "UI", "components", "visual", "palette", "fonts", "icons"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "radix-primitives": {
+      "name": "radix-primitives",
+      "path": "radix-primitives/SKILL.md",
+      "fullDescription": "Use when building UI components with Radix UI, styling Radix with Tailwind, or implementing accessible interactive patterns. Covers all 25+ primitives, data-state styling, and composition.",
+      "triggers": ["radix", "primitives", "dialog", "dropdown", "select", "tabs", "accordion", "checkbox", "switch", "tooltip", "popover", "menu", "data-state", "asChild"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "accessibility-wcag-22": {
+      "name": "accessibility-wcag-22",
+      "path": "accessibility-wcag-22/SKILL.md",
+      "fullDescription": "Use when checking accessibility, validating contrast, focus states, touch targets, or any WCAG compliance. Context-aware - surfaces relevant criteria based on element type.",
+      "triggers": ["accessibility", "a11y", "wcag", "contrast", "focus", "touch-target", "aria", "screen-reader", "keyboard"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "responsive-dark-mode": {
+      "name": "responsive-dark-mode",
+      "path": "responsive-dark-mode/SKILL.md",
+      "fullDescription": "Use when designing for multiple screen sizes (320px-2560px+), implementing responsive layouts, or building dark mode. Covers breakpoints xs/sm/md/lg/xl/2xl and dark theme patterns.",
+      "triggers": ["responsive", "breakpoint", "mobile", "tablet", "desktop", "dark-mode", "theme", "viewport", "media-query"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "financial-ux-patterns": {
+      "name": "financial-ux-patterns",
+      "path": "financial-ux-patterns/SKILL.md",
+      "fullDescription": "Use when designing financial data displays, dashboards, risk visualization, data tables, or any fintech UX. Covers number formatting, compliance UI, and trust patterns.",
+      "triggers": ["financial", "fintech", "dashboard", "data-table", "risk", "compliance", "money", "currency", "charts", "KPI", "metrics"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "design-systems-reference": {
+      "name": "design-systems-reference",
+      "path": "design-systems-reference/SKILL.md",
+      "fullDescription": "Use when benchmarking design decisions against industry standards. References Material Design 3, IBM Carbon, Shopify Polaris, Adobe Spectrum, GitHub Primer, Salesforce Lightning, and more.",
+      "triggers": ["material", "carbon", "polaris", "spectrum", "primer", "lightning", "fluent", "benchmark", "industry-standard"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "market-competitors": {
+      "name": "market-competitors",
+      "path": "market-competitors/SKILL.md",
+      "fullDescription": "Use when researching competitor design patterns, differentiating Invela's UI, or benchmarking against market. Tracks 20+ GRC/TPRM/compliance competitors.",
+      "triggers": ["competitor", "competition", "market", "GRC", "TPRM", "differentiate", "benchmark"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "invela-design-system": {
+      "name": "invela-design-system",
+      "path": "invela-design-system/SKILL.md",
+      "fullDescription": "Use when checking current DS state, making token decisions, or documenting component specs. Self-improving - updates as the design system evolves.",
+      "triggers": ["invela-ds", "token", "component-spec", "current-state", "DS-status"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "ds-audit-handoff": {
+      "name": "ds-audit-handoff",
+      "path": "ds-audit-handoff/SKILL.md",
+      "fullDescription": "Use when tracking Radix-to-Invela deltas, creating handoff documentation for developers/AI agents, or auditing design system alignment.",
+      "triggers": ["delta", "handoff", "audit", "override", "radix-invela", "documentation"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "vercel-web-interface": {
+      "name": "vercel-web-interface",
+      "path": "vercel-web-interface/SKILL.md",
+      "fullDescription": "USE WHEN building any web UI, forms, interactions, animations, or performance optimization. Vercel's comprehensive interface guidelines covering hundreds of implementation decisions. Framework-agnostic with React/Next.js specifics.",
+      "triggers": ["form", "input", "button", "animation", "loading", "performance", "keyboard", "focus", "hit-target", "url-state", "optimistic", "error-message"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "figma-dev": {
+      "name": "figma-dev",
+      "path": "figma-dev/SKILL.md",
+      "fullDescription": "Use when working with Figma Make, Figma MCP, or syncing design tokens between code and Figma. Ensures bidirectional compatibility.",
+      "triggers": ["figma", "figma-make", "figma-mcp", "design-tokens", "figma-sync", "code-to-figma"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "commit": {
+      "name": "commit",
+      "path": "commit/SKILL.md",
+      "fullDescription": "Smart commit with pre-commit checks and documentation refresh. Use when ready to commit changes to ensure quality and documentation stay in sync.",
+      "triggers": ["commit", "pre-commit", "conventional", "git", "push"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "catchup": {
+      "name": "catchup",
+      "path": "catchup/SKILL.md",
+      "fullDescription": "Restore context at session start. Use when starting a new session, returning to work after a break, or needing to understand current project state quickly.",
+      "triggers": ["catchup", "session-start", "context", "restore", "resume"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "knowledge-accumulation": {
+      "name": "knowledge-accumulation",
+      "path": "knowledge-accumulation/SKILL.md",
+      "fullDescription": "Capture and reuse institutional knowledge. Use when solving tricky bugs, making architectural decisions, discovering integration quirks, or establishing reusable patterns.",
+      "triggers": ["knowledge", "learning", "decision", "gotcha", "pattern", "institutional", "memory", "lessons"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "fixing-test-suites": {
+      "name": "fixing-test-suites",
+      "path": "fixing-test-suites/SKILL.md",
+      "fullDescription": "Use when fixing failing tests, especially auth mocking issues in Flask/pytest or React/Jest service mocking patterns.",
+      "triggers": ["test", "failing", "broken", "mock", "auth", "fixture", "pytest", "jest", "suite"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "test-patterns": {
+      "name": "test-patterns",
+      "path": "test-patterns/SKILL.md",
+      "fullDescription": "Use when writing tests, organizing test suites, creating mocks/fixtures, or establishing testing conventions for a project.",
+      "triggers": ["test", "testing", "mock", "fixture", "factory", "coverage", "assertion", "AAA", "pyramid"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "api-testing": {
+      "name": "api-testing",
+      "path": "api-testing/SKILL.md",
+      "fullDescription": "Use when testing REST APIs, GraphQL endpoints, writing integration tests for backends, or setting up API test automation.",
+      "triggers": ["api", "rest", "graphql", "endpoint", "integration", "contract", "status-code"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "react-performance": {
+      "name": "react-performance",
+      "path": "react-performance/SKILL.md",
+      "fullDescription": "React and Next.js performance optimization. Use when writing, reviewing, or refactoring React/Next.js code, optimizing bundle size, or fixing performance issues.",
+      "triggers": ["react", "nextjs", "performance", "bundle", "waterfall", "memo", "suspense", "lazy", "server-component", "optimization"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "ui-review": {
+      "name": "ui-review",
+      "path": "ui-review/SKILL.md",
+      "fullDescription": "Audit UI code against 100+ best practices for accessibility, performance, and UX. Use when reviewing frontend code, checking accessibility, or auditing design implementation.",
+      "triggers": ["ui-review", "audit", "frontend", "accessibility", "ux", "forms", "images", "animation", "typography", "navigation", "dark-mode"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "prd": {
+      "name": "prd",
+      "path": "prd/SKILL.md",
+      "fullDescription": "Create product requirements documents. Use when starting a new feature, product, or project that needs formal requirements before implementation.",
+      "triggers": ["prd", "requirements", "product", "feature", "spec", "specification"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "stories": {
+      "name": "stories",
+      "path": "stories/SKILL.md",
+      "fullDescription": "Create user stories with INVEST criteria. Use when breaking down features into implementable units of work.",
+      "triggers": ["story", "stories", "user-story", "backlog", "INVEST", "persona"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "acceptance": {
+      "name": "acceptance",
+      "path": "acceptance/SKILL.md",
+      "fullDescription": "Write acceptance criteria in Given-When-Then format. Use when defining done for stories, features, or bug fixes.",
+      "triggers": ["acceptance", "criteria", "given-when-then", "BDD", "scenario", "definition-of-done"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "estimate": {
+      "name": "estimate",
+      "path": "estimate/SKILL.md",
+      "fullDescription": "Estimate story points using Fibonacci scale with complexity analysis. Use when sizing stories for sprint planning.",
+      "triggers": ["estimate", "story-points", "fibonacci", "sizing", "complexity", "effort"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "prioritize": {
+      "name": "prioritize",
+      "path": "prioritize/SKILL.md",
+      "fullDescription": "Prioritize work using RICE framework. Use when deciding what to build next or ordering a backlog.",
+      "triggers": ["prioritize", "RICE", "MoSCoW", "backlog", "ranking", "value", "effort"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "sprint": {
+      "name": "sprint",
+      "path": "sprint/SKILL.md",
+      "fullDescription": "Plan and track sprints. Use when starting sprint planning, reviewing sprint progress, or running sprint ceremonies.",
+      "triggers": ["sprint", "planning", "capacity", "velocity", "standup", "retro", "ceremony"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "status": {
+      "name": "status",
+      "path": "status/SKILL.md",
+      "fullDescription": "Generate project status reports. Use when preparing daily standups, weekly summaries, or stakeholder updates.",
+      "triggers": ["status", "report", "standup", "weekly", "stakeholder", "update", "progress"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "raid": {
+      "name": "raid",
+      "path": "raid/SKILL.md",
+      "fullDescription": "Maintain RAID logs (Risks, Assumptions, Issues, Dependencies). Use when tracking project risks, validating assumptions, or managing dependencies.",
+      "triggers": ["raid", "risk", "assumption", "issue", "dependency", "mitigation"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "decision-record": {
+      "name": "decision-record",
+      "path": "decision-record/SKILL.md",
+      "fullDescription": "Create architectural decision records. Use when making significant technical or architectural decisions that should be documented for future reference.",
+      "triggers": ["decision", "ADR", "architecture", "record", "trade-off", "alternative"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "docs-architecture": {
+      "name": "docs-architecture",
+      "path": "docs-architecture/SKILL.md",
+      "fullDescription": "Use when structuring documentation for a project, product, or organization — choosing what to write, for whom, at what depth, identifying documentation gaps, or creating a documentation strategy from scratch.",
+      "triggers": ["documentation", "docs", "architecture", "tier", "audience", "gap-analysis", "template", "technical-writing"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "diagram-standards": {
+      "name": "diagram-standards",
+      "path": "diagram-standards/SKILL.md",
+      "fullDescription": "Use when creating SVG diagrams for documentation — architecture diagrams, flow charts, data flow diagrams, sequence diagrams, or dashboard wireframes — ensures accessible, brand-consistent, version-controllable diagrams.",
+      "triggers": ["diagram", "svg", "architecture-diagram", "flowchart", "sequence", "data-flow", "wireframe"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "AssetManagement": {
+      "name": "AssetManagement",
+      "path": "AssetManagement/SKILL.md",
+      "fullDescription": "Brand asset management with constraint enforcement. USE WHEN creating images, logos, icons, colors, typography, visual assets, or auditing brand consistency for any project.",
+      "triggers": ["asset", "brand", "manifest", "icon", "logo", "image", "visual", "constraint", "audit"],
+      "workflows": ["Workflows/Initialize.md", "Workflows/Create.md", "Workflows/Audit.md"],
       "tier": "deferred"
     }
   }

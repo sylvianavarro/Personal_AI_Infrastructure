@@ -42,6 +42,8 @@ node_modules/
 *.swp
 *.swo
 *~
+# But allow the ~ directory used in bundle paths (Bundles/Kai/~/.claude/)
+!Bundles/Kai/~/
 
 # Temporary files
 tmp/

@@ -5,34 +5,35 @@ description: Create and validate skills. USE WHEN create skill, new skill, skill
 
 # CreateSkill
 
-MANDATORY skill creation framework for ALL skill creation requests.
+Skill creation and validation framework.
 
 ## Authoritative Source
 
 **Before creating ANY skill, READ:** `~/.claude/skills/CORE/SkillSystem.md`
 
-## Workflow Routing
+That file defines the required structure: YAML frontmatter, workflow routing tables, examples section, directory layout, and naming conventions.
 
-| Workflow | Trigger | File |
-|----------|---------|------|
-| **CreateSkill** | "create a new skill" | `Workflows/CreateSkill.md` |
-| **ValidateSkill** | "validate skill" | `Workflows/ValidateSkill.md` |
-| **CanonicalizeSkill** | "canonicalize", "fix skill" | `Workflows/CanonicalizeSkill.md` |
+## Process
+
+1. Read `SkillSystem.md` for the required structure
+2. Create skill directory with SKILL.md
+3. Add workflow files if the skill has multi-step processes
+4. Validate against the checklist in SkillSystem.md
 
 ## Examples
 
 **Example 1: Create a new skill**
 ```
 User: "Create a skill for managing my recipes"
-→ Invokes CreateSkill workflow
 → Reads SkillSystem.md for structure
-→ Creates skill with TitleCase naming
+→ Creates RecipeManager/ directory
+→ Writes SKILL.md with frontmatter, routing table, examples
 ```
 
 **Example 2: Fix an existing skill**
 ```
-User: "Canonicalize the daemon skill"
-→ Invokes CanonicalizeSkill workflow
-→ Renames files to TitleCase
-→ Ensures Examples section exists
+User: "Fix the daemon skill structure"
+→ Reads SkillSystem.md checklist
+→ Adds missing sections (Workflow Routing, Examples)
+→ Fixes naming to match conventions
 ```

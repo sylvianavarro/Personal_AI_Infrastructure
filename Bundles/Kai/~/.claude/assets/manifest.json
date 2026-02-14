@@ -1,0 +1,60 @@
+{
+  "brand": "Global Defaults",
+  "version": "1.0.0",
+  "palette": {
+    "primary": { "hex": "#1A1A1A", "usage": "Default primary, headings, key UI elements" },
+    "secondary": { "hex": "#6B7280", "usage": "Supporting text, secondary elements" },
+    "accent": { "hex": "#3B82F6", "usage": "Links, interactive elements, focus states" },
+    "background": { "hex": "#FFFFFF", "usage": "Page backgrounds, card surfaces" },
+    "foreground": { "hex": "#111827", "usage": "Body text" },
+    "muted": { "hex": "#F3F4F6", "usage": "Disabled states, subtle backgrounds" },
+    "error": { "hex": "#DC2626", "usage": "Error states, destructive actions" },
+    "success": { "hex": "#16A34A", "usage": "Success confirmations" },
+    "warning": { "hex": "#CA8A04", "usage": "Warning indicators" }
+  },
+  "typography": {
+    "families": {
+      "heading": "Inter",
+      "body": "Inter",
+      "mono": "JetBrains Mono"
+    },
+    "weights": [400, 500, 600, 700],
+    "scale": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem"
+    }
+  },
+  "icons": {
+    "style": "outline",
+    "strokeWidth": 1.5,
+    "library": "lucide",
+    "sizes": {
+      "sm": 16,
+      "md": 20,
+      "lg": 24,
+      "xl": 32
+    }
+  },
+  "logos": {},
+  "images": {
+    "style": "clean, minimal, professional",
+    "aspectRatios": ["16:9", "1:1", "4:3"],
+    "treatments": ["none", "rounded-lg", "shadow-md"],
+    "maxFileSize": "500KB"
+  },
+  "constraints": {
+    "minContrastRatio": 4.5,
+    "maxColors": 9,
+    "spacingUnit": 4,
+    "borderRadius": "0.5rem",
+    "maxIconStrokeWidth": 2,
+    "allowedImageFormats": ["svg", "png", "webp"]
+  },
+  "references": []
+}

@@ -5,38 +5,17 @@ description: Personal AI Infrastructure core. AUTO-LOADS at session start. USE W
 
 # CORE - Personal AI Infrastructure
 
-**Auto-loads at session start.** This skill defines your AI's identity, response format, and core operating principles.
+**Auto-loads at session start.** This skill defines identity, stack preferences, and core operating principles.
 
 ## Identity
 
-**Assistant:**
-- Name: YOUR_AI_NAME
-- Role: Your AI assistant
-- Operating Environment: Personal AI infrastructure built on Claude Code
-
-**User:**
-- Name: YOUR_NAME
-
----
-
-## First-Person Voice (CRITICAL)
-
-Your AI should speak as itself, not about itself in third person.
-
-**Correct:**
-- "for my system" / "in my architecture"
-- "I can help" / "my delegation patterns"
-- "we built this together"
-
-**Wrong:**
-- "for [AI Name]" / "for the [AI Name] system"
-- "the system can" (when meaning "I can")
-
----
+Identity and communication rules are defined in `~/.claude/CLAUDE.md` (the authoritative source). This skill defers to CLAUDE.md for:
+- User name, communication style, commit conventions
+- Code principles, error handling, clarification behavior
 
 ## Stack Preferences
 
-Default preferences (customize in CoreStack.md):
+See `CoreStack.md` for full details. Defaults:
 
 - **Language:** TypeScript preferred over Python
 - **Package Manager:** bun (NEVER npm/yarn/pnpm)
@@ -45,25 +24,8 @@ Default preferences (customize in CoreStack.md):
 
 ---
 
-## Response Format (Optional)
-
-Define a consistent response format for task-based responses:
-
-```
-SUMMARY: [One sentence]
-ANALYSIS: [Key findings]
-ACTIONS: [Steps taken]
-RESULTS: [Outcomes]
-NEXT: [Recommended next steps]
-```
-
-Customize this format in SKILL.md to match your preferences.
-
----
-
 ## Quick Reference
 
-**Full documentation available in context files:**
-- Contacts: `Contacts.md`
 - Stack preferences: `CoreStack.md`
-- Security protocols: `SecurityProtocols.md`
+- Skill system conventions: `SkillSystem.md`
+- Architecture overview: `PaiArchitecture.md`

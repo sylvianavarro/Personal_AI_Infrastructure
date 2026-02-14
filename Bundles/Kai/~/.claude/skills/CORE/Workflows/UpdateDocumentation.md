@@ -25,20 +25,66 @@ Keeps PAI Architecture tracking current by:
 
 ## Workflow Steps
 
-### Step 1: Check Current State
+### Step 1: Regenerate Architecture
 
-Review what's currently installed:
-- List skills in `~/.claude/skills/`
-- Check hooks in `~/.claude/hooks/`
-- Verify voice server status
+```bash
+bun run ~/.claude/Tools/PaiArchitecture.ts generate
+```
 
-### Step 2: Update Documentation
+### Step 2: Log the Change (If Applicable)
 
-Update the PaiArchitecture.md file with current state.
+If this was triggered by an installation or upgrade:
+
+```bash
+# For pack installations
+bun run ~/.claude/Tools/PaiArchitecture.ts log-upgrade "Installed [pack-name] v[version]" pack
+
+# For bundle installations
+bun run ~/.claude/Tools/PaiArchitecture.ts log-upgrade "Installed [bundle-name] bundle" bundle
+
+# For config changes
+bun run ~/.claude/Tools/PaiArchitecture.ts log-upgrade "[description of change]" config
+```
 
 ### Step 3: Verify Health
 
-Confirm all systems are operational:
-- Hooks registered in settings.json
-- Skills indexed in skill-index.json
-- Voice server responding (if installed)
+```bash
+bun run ~/.claude/Tools/PaiArchitecture.ts check
+```
+
+### Step 4: Report Status
+
+Output the current architecture state to confirm the update was successful.
+
+## Integration with Pack Installation
+
+**All pack installation workflows should include this at the end:**
+
+```markdown
+## Post-Installation: Update Documentation
+
+After all installation steps complete:
+
+1. Run UpdateDocumentation workflow
+2. Log the pack installation
+3. Verify the pack appears in Architecture.md
+
+```bash
+# Auto-run after pack installation
+bun run ~/.claude/Tools/PaiArchitecture.ts log-upgrade "Installed [pack-name] v[version]" pack
+bun run ~/.claude/Tools/PaiArchitecture.ts generate
+```
+```
+
+## Example Output
+
+```
+📋 SUMMARY: Updated PAI Architecture documentation
+⚡ ACTIONS:
+  - Regenerated Architecture.md
+  - Logged upgrade: "Installed kai-voice-system v1.0.0"
+  - Verified system health
+✅ RESULTS: Architecture.md now shows 4 packs, 1 bundle
+📊 STATUS: All systems healthy
+🎯 COMPLETED: Architecture updated - 4 packs installed, all healthy.
+```

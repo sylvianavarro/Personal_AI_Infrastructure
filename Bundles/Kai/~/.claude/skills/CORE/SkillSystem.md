@@ -1,82 +1,64 @@
-# Custom Skill System
+# Skill System
 
-**The MANDATORY configuration system for ALL skills.**
+**Structure conventions for skills in ~/.claude/skills/.**
 
-## THIS IS THE AUTHORITATIVE SOURCE
+## Naming Convention
 
-This document defines the **required structure** for every skill in the system.
+Skill directories use **kebab-case** (e.g., `invela-brand`, `api-testing`). Multi-word skills with established TitleCase names (e.g., `CORE`, `CreateSkill`, `AssetManagement`) may keep them.
 
-## TitleCase Naming Convention (MANDATORY)
+| Component | Convention | Example |
+|-----------|-----------|---------|
+| Skill directory | kebab-case or TitleCase | `react-performance`, `Design` |
+| SKILL.md | Always `SKILL.md` | — |
+| Workflow files | TitleCase | `Workflows/Create.md` |
+| Sub-files | TitleCase or descriptive | `ManifestSchema.md` |
 
-**All naming in the skill system MUST use TitleCase (PascalCase).**
+## Required Structure
 
-| Component | Wrong | Correct |
-|-----------|-------|---------|
-| Skill directory | `createskill`, `create-skill` | `CreateSkill` |
-| Workflow files | `create.md`, `update-info.md` | `Create.md`, `UpdateInfo.md` |
-| Tool files | `manage-server.ts` | `ManageServer.ts` |
-| YAML name | `name: create-skill` | `name: CreateSkill` |
-
-## The Required Structure
-
-Every SKILL.md has two parts:
-
-### 1. YAML Frontmatter (Single-Line Description)
+### YAML Frontmatter
 
 ```yaml
 ---
-name: SkillName
-description: [What it does]. USE WHEN [intent triggers using OR]. [Additional capabilities].
+name: skill-name
+description: [What it does]. USE WHEN [triggers]. [Additional context].
 ---
 ```
 
-**Rules:**
-- `name` uses **TitleCase**
-- `description` is a **single line** (not multi-line with `|`)
-- `USE WHEN` keyword is **MANDATORY**
-- Max 1024 characters
+Rules:
+- `description` is a single line, max 1024 chars
+- Include `USE WHEN` or `Use when` to define trigger conditions
 
-### 2. Markdown Body (Workflow Routing + Examples)
+### Markdown Body
+
+At minimum, a SKILL.md needs:
+1. A heading with the skill name
+2. A "When to Use" section or equivalent trigger guidance
+3. Actionable content — instructions, templates, rules, or reference tables
+
+Skills with multiple workflows should include a routing table:
 
 ```markdown
-# SkillName
-
-[Brief description]
-
 ## Workflow Routing
 
 | Workflow | Trigger | File |
 |----------|---------|------|
-| **WorkflowOne** | "trigger phrase" | `Workflows/WorkflowOne.md` |
-
-## Examples
-
-**Example 1: [Use case]**
-\`\`\`
-User: "[Request]"
-→ Invokes WorkflowOne workflow
-→ [Result]
-\`\`\`
+| **Create** | "create new X" | `Workflows/Create.md` |
 ```
 
-## Directory Structure
+## Directory Layout
 
 ```
-SkillName/
-├── SKILL.md              # Main skill file
-├── QuickStartGuide.md    # Context files in root (TitleCase)
-├── Tools/                # CLI tools (ALWAYS present)
-│   └── ToolName.ts
-└── Workflows/            # Work execution workflows
+skill-name/
+├── SKILL.md              # Main skill file (required)
+├── supporting-file.md    # Context/reference files
+└── Workflows/            # Multi-step workflow files
     └── Create.md
 ```
 
-## Complete Checklist
+## Quality Bar
 
-- [ ] Skill directory uses TitleCase
-- [ ] YAML `name:` uses TitleCase
-- [ ] Single-line `description` with `USE WHEN` clause
-- [ ] `## Workflow Routing` section with table format
-- [ ] `## Examples` section with 2-3 usage patterns
-- [ ] `Tools/` directory exists (even if empty)
-- [ ] All workflow files use TitleCase
+A skill should be **actionable, not aspirational.** If an LLM reads the skill, it should know exactly what to do — not just what topics are covered. Every skill should contain:
+
+- Concrete instructions, templates, or rules
+- Specific examples where helpful
+- No empty sections or placeholder content

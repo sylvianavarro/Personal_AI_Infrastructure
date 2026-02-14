@@ -2,6 +2,8 @@
 
 Technical preferences for code generation and tooling.
 
+Generated: 2025-12-31
+
 ---
 
 ## Language Preferences
