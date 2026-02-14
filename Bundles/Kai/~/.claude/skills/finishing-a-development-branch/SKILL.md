@@ -37,24 +37,41 @@ Stop. Don't proceed to Step 2.
 
 **If tests pass:** Continue to Step 2.
 
-### Step 2: Determine Base Branch
+### Step 2: Determine Base Branch and Remote Access
 
 ```bash
 # Try common base branches
 git merge-base HEAD main 2>/dev/null || git merge-base HEAD master 2>/dev/null
+
+# Check if remote is available
+git remote -v 2>/dev/null
+git ls-remote --exit-code origin 2>/dev/null
 ```
 
 Or ask: "This branch split from main - is that correct?"
 
 ### Step 3: Present Options
 
-Present exactly these 4 options:
+**If remote is available**, present these 4 options:
 
 ```
 Implementation complete. What would you like to do?
 
 1. Merge back to <base-branch> locally
 2. Push and create a Pull Request
+3. Keep the branch as-is (I'll handle it later)
+4. Discard this work
+
+Which option?
+```
+
+**If no remote access** (test clones, local-only repos, no push permission), present these 4 options instead:
+
+```
+Implementation complete (no remote access). What would you like to do?
+
+1. Merge back to <base-branch> locally
+2. Squash commits into <base-branch> (single commit)
 3. Keep the branch as-is (I'll handle it later)
 4. Discard this work
 
@@ -86,7 +103,7 @@ git branch -d <feature-branch>
 
 Then: Cleanup worktree (Step 5)
 
-#### Option 2: Push and Create PR
+#### Option 2a: Push and Create PR (remote available)
 
 ```bash
 # Push branch
@@ -101,6 +118,22 @@ gh pr create --title "<title>" --body "$(cat <<'EOF'
 - [ ] <verification steps>
 EOF
 )"
+```
+
+Then: Cleanup worktree (Step 5)
+
+#### Option 2b: Squash into Base (no remote)
+
+```bash
+git checkout <base-branch>
+git merge --squash <feature-branch>
+git commit -m "<conventional commit message summarizing all changes>"
+
+# Verify tests on merged result
+<test command>
+
+# If tests pass
+git branch -D <feature-branch>
 ```
 
 Then: Cleanup worktree (Step 5)
@@ -154,7 +187,8 @@ git worktree remove <worktree-path>
 | Option | Merge | Push | Keep Worktree | Cleanup Branch |
 |--------|-------|------|---------------|----------------|
 | 1. Merge locally | ✓ | - | - | ✓ |
-| 2. Create PR | - | ✓ | ✓ | - |
+| 2a. Create PR | - | ✓ | ✓ | - |
+| 2b. Squash locally | ✓ (squash) | - | - | ✓ |
 | 3. Keep as-is | - | - | ✓ | - |
 | 4. Discard | - | - | - | ✓ (force) |
 

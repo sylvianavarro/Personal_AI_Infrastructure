@@ -18,8 +18,9 @@ Load plan, review critically, execute tasks in batches, report for review betwee
 ### Step 1: Load and Review Plan
 1. Read plan file
 2. Review critically - identify any questions or concerns about the plan
-3. If concerns: Raise them with your human partner before starting
-4. If no concerns: Create TodoWrite and proceed
+3. **Pre-flight check:** Scan all tasks for environment dependencies (env vars, API keys, external services, database connections). If any task requires credentials or services that aren't available, flag it now — don't discover it mid-execution.
+4. If concerns or missing dependencies: Raise them with your human partner before starting. Mark blocked tasks as "skipped — needs [dependency]" so you execute what you can.
+5. If no concerns: Create TodoWrite and proceed
 
 ### Step 2: Execute Batch
 **Default: First 3 tasks**
@@ -49,6 +50,23 @@ After all tasks complete and verified:
 - **REQUIRED SUB-SKILL:** Use superpowers:finishing-a-development-branch
 - Follow that skill to verify tests, present options, execute choice
 
+## Pre-Flight Checklist
+
+Before executing any task, verify the environment has what the plan needs:
+
+```bash
+# Check for .env / .env.local files
+ls .env* 2>/dev/null
+
+# Check for required services (database, APIs)
+# Look at plan tasks — any that reference external services?
+
+# Check for required tools
+which <tool> 2>/dev/null
+```
+
+**If dependencies are missing:** Don't skip silently. Report which tasks are blocked and which can proceed. Execute the unblocked tasks first.
+
 ## When to Stop and Ask for Help
 
 **STOP executing immediately when:**
@@ -56,6 +74,7 @@ After all tasks complete and verified:
 - Plan has critical gaps preventing starting
 - You don't understand an instruction
 - Verification fails repeatedly
+- Pre-flight check reveals missing env vars or services
 
 **Ask for clarification rather than guessing.**
 

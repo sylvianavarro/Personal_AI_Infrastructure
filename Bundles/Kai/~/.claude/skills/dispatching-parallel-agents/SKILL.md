@@ -127,6 +127,16 @@ Return: Summary of what you found and what you fixed.
 **Need full context:** Understanding requires seeing entire system
 **Exploratory debugging:** You don't know what's broken yet
 **Shared state:** Agents would interfere (editing same files, using same resources)
+**Sequential feature work:** When building a feature where each step depends on the previous (e.g., write types → implement function → add API route → build UI). Use executing-plans or subagent-driven-development instead — those handle sequential dependencies correctly.
+
+### Recognizing Sequential vs Parallel Work
+
+| Pattern | Use | Example |
+|---------|-----|---------|
+| Steps build on each other | executing-plans | types → logic → API → UI |
+| Independent problems in different subsystems | **this skill** | Fix auth tests + fix API tests + fix UI tests |
+| Same codebase, different features | **this skill** | Add search + add export + add filters |
+| Single feature, multiple files | executing-plans | One feature touching 5 files sequentially |
 
 ## Real Example from Session
 
