@@ -28,6 +28,35 @@ Write the test first. Watch it fail. Write minimal code to pass.
 
 Thinking "skip TDD just this once"? Stop. That's rationalization.
 
+## Coverage Mode (Existing Code Without Tests)
+
+When code already exists but has no tests, strict test-first doesn't apply — there's no "RED" because there's no new production code to write. This is legitimate TDD work with its own discipline:
+
+**Process:**
+1. **Read the implementation** — understand what it does, identify params, branches, edge cases
+2. **Write tests that verify current behavior** — structure, output shape, parameter effects
+3. **Use directional assertions, not just "path differs"** — test that parameter X causes measurable change Y
+4. **Run tests** — they should all PASS (you're documenting existing behavior)
+5. **If a test FAILS** — you found a bug. Now switch to standard TDD: write the fix, verify green.
+
+**Coverage mode assertions (ranked best → worst):**
+
+| Quality | Example | Catches |
+|---------|---------|---------|
+| **Exact value** | `expect(result.width).toBe(100)` | Any regression |
+| **Directional** | `expect(wide.width).toBeGreaterThan(narrow.width)` | Inverted logic |
+| **Structural** | `expect(path).toContain('C')` (bezier curves) | Wrong path type |
+| **Existence** | `expect(path).toContain('M')` | Total breakage only |
+| **Difference** | `expect(a.path).not.toBe(b.path)` | Nothing useful — avoid |
+
+**Rule:** `not.toBe(other)` is a last resort. If you can't assert what changed, you don't understand the parameter. Read the code again.
+
+**Coverage mode is NOT an excuse to:**
+- Skip running tests
+- Write shallow assertions only
+- Avoid edge cases
+- Skip the code review
+
 ## The Iron Law
 
 ```

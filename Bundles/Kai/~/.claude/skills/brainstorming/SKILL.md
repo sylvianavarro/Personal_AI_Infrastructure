@@ -44,11 +44,43 @@ Start by understanding the current project context, then ask questions one at a 
 - Use superpowers:using-git-worktrees to create isolated workspace
 - Use superpowers:writing-plans to create detailed implementation plan
 
+## Chain Mode (No Human in the Loop)
+
+When invoked as part of an automated skill chain (e.g., brainstorming → writing-plans → executing-plans) with no interactive human to ask questions:
+
+**Process:**
+1. **Read the codebase** — scan source files, tests, docs, types for the feature area
+2. **Identify complexity** — list components by param count, branching logic, dependencies
+3. **Propose 2-3 approaches** with trade-offs and a recommendation (same as interactive)
+4. **Select the recommended approach** and output the design directly
+5. **Skip incremental validation** — present the full design in one pass
+
+**Chain mode output format:**
+
+```markdown
+## Brainstorm: [Topic]
+
+### Codebase Scan
+| Component | Complexity | Key Behaviors |
+|-----------|-----------|---------------|
+| [name] | Low/Medium/High | [what it does] |
+
+### Approaches
+1. **[Recommended]** — [description, trade-offs]
+2. **[Alternative]** — [description, trade-offs]
+3. **[Alternative]** — [description, trade-offs]
+
+### Selected: [Approach name]
+[Brief rationale]
+```
+
+**Chain mode is NOT an excuse to skip codebase analysis or approach comparison.**
+
 ## Key Principles
 
-- **One question at a time** - Don't overwhelm with multiple questions
+- **One question at a time** - Don't overwhelm with multiple questions (interactive mode)
 - **Multiple choice preferred** - Easier to answer than open-ended when possible
 - **YAGNI ruthlessly** - Remove unnecessary features from all designs
 - **Explore alternatives** - Always propose 2-3 approaches before settling
-- **Incremental validation** - Present design in sections, validate each
+- **Incremental validation** - Present design in sections, validate each (interactive mode)
 - **Be flexible** - Go back and clarify when something doesn't make sense

@@ -54,6 +54,44 @@ git stash list
 
 ---
 
+### Step 1.5: Scan Codebase Structure
+
+**Don't stop at git state — inspect what the code actually is.**
+
+```bash
+# Project type and stack
+cat package.json 2>/dev/null | head -20    # Node/TS
+cat Cargo.toml 2>/dev/null | head -10      # Rust
+cat requirements.txt 2>/dev/null | head -10 # Python
+cat go.mod 2>/dev/null | head -5           # Go
+
+# Source structure (top 2 levels)
+find src/ -type f -name "*.ts" -o -name "*.tsx" -o -name "*.py" -o -name "*.rs" 2>/dev/null | head -30
+
+# Test structure
+find . -name "*.test.*" -o -name "*.spec.*" -o -name "*_test.*" 2>/dev/null | wc -l
+
+# Config files that shape the project
+ls tsconfig.json vitest.config.* jest.config.* .eslintrc* biome.json 2>/dev/null
+```
+
+**Output:**
+
+```markdown
+## Codebase Shape
+| Metric | Value |
+|--------|-------|
+| Language | [TypeScript/Python/Rust/etc] |
+| Framework | [Next.js/Flask/Axum/etc] |
+| Source files | [X] |
+| Test files | [X] |
+| Key dirs | [src/, lib/, components/, etc] |
+```
+
+**Why:** Git state tells you what changed. Codebase structure tells you what exists. You need both to make good decisions.
+
+---
+
 ### Step 2: Check Knowledge Base
 
 **Before diving into code, check what we know:**
