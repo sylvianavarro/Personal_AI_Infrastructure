@@ -155,6 +155,23 @@ VALUE      | If time      | Don't do     |
 | Internal tool | Internal users |
 | One-time use | Users who hit feature once |
 
+### Reach Proxies (Non-User-Facing Work)
+
+When the work isn't directly user-facing (infrastructure, tech debt, internal tools, platform systems), "users affected per quarter" doesn't apply directly. Use a proxy:
+
+| Work Type | Reach Proxy | How to Calculate |
+|-----------|-------------|------------------|
+| **Platform/infrastructure** | Downstream features enabled | Count features/games/products that depend on this system |
+| **Tech debt** | Developer hours saved per quarter | Estimate hours lost to the debt × frequency |
+| **Internal tooling** | Internal users × usage frequency | Team size × daily/weekly uses |
+| **Prerequisite system** | Users of ALL systems that require this | Sum reach of dependent features |
+| **Test coverage** | Features protected from regression | Count features covered by the tests |
+| **Reusable component** | Products that will use it | Count current + planned consumers |
+
+**Example:** A reusable `TimerSystem` used by 5 future games, each played by 3 users = reach of 15. A prerequisite system blocking 4 features with combined reach of 200 = reach of 200.
+
+**Rule:** When scoring reach for infrastructure, use the reach of whatever it unblocks, not the reach of the infrastructure itself.
+
 ### Impact Scale
 
 | Score | Description | Example |

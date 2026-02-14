@@ -33,6 +33,36 @@ So that I can share them with clients who don't have system access.
 
 ## Story Creation Process
 
+### Step 0: Check Existing Implementation
+
+Before writing stories, scan the codebase. Stories for things that already exist are waste.
+
+```bash
+# Search for existing implementations matching the feature area
+grep -r "class\|export function\|export const" src/ --include="*.ts" --include="*.tsx" | grep -i "[feature keyword]"
+
+# Check for existing test coverage
+find . -name "*.test.*" -o -name "*.spec.*" | xargs grep -l "[feature keyword]" 2>/dev/null
+
+# Look for existing types/interfaces
+grep -r "interface\|type " src/ --include="*.ts" | grep -i "[feature keyword]"
+```
+
+**Output:**
+
+```markdown
+## Existing Implementation Scan
+
+| Component | Status | Location | Notes |
+|-----------|--------|----------|-------|
+| [Name] | Exists / Partial / Missing | [path] | [what works, what doesn't] |
+
+**Stories needed for:** [only the gaps]
+**Stories NOT needed for:** [already implemented — cite file paths]
+```
+
+**Rule:** If a system already exists and passes tests, write a validation story (1pt) instead of a build story (5pt+). Don't rebuild what works.
+
 ### Step 1: Identify Users
 
 ```markdown

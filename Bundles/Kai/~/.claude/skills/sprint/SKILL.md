@@ -142,6 +142,57 @@ Plan and manage sprint work effectively.
 
 ---
 
+## Solo Developer Mode
+
+When team size is 1, simplify everything:
+
+### Capacity (Solo)
+
+```markdown
+## Sprint Capacity (Solo)
+
+**Sprint Duration:** [X] days
+**Developer:** [Name]
+**Availability:** [X]% (account for meetings, context-switching)
+
+**Base velocity:** [X] points/sprint (use last 3 sprints avg)
+**Adjusted:** [X] points (availability × base)
+**Buffer:** 20% (solo = no backup, need more buffer)
+**Committable:** [X] points
+```
+
+### Ceremonies (Solo)
+
+| Ceremony | Solo Adaptation | Duration |
+|----------|----------------|----------|
+| Planning | Morning intent — pick today's work from backlog | 10 min |
+| Daily Standup | **Skip** — no audience. Use git log as record. | 0 min |
+| Review | Self-review: does it work? Ship it or note debt. | 15 min |
+| Retrospective | End-of-sprint journal: what slowed me down? | 15 min |
+
+### Tracking (Solo)
+
+Replace daily standups with morning intent / evening actual:
+
+```markdown
+### Day [X]
+**Intent:** [What I plan to work on]
+**Actual:** [What I got done]
+**Blocker:** [None / what stopped me]
+**Carry:** [What rolls to tomorrow]
+```
+
+### Solo Anti-Patterns
+
+| Pattern | Problem | Fix |
+|---------|---------|-----|
+| No sprint at all | Work drifts, no velocity data | Even 1-week sprints help |
+| Over-planning | Ceremonies take longer than coding | Keep total ceremony time < 1hr/sprint |
+| No retrospective | Same mistakes repeat | 15-min journal is enough |
+| Infinite WIP | 5 things in progress, 0 done | WIP limit of 2 |
+
+---
+
 ## Common Patterns
 
 ### Over-commitment

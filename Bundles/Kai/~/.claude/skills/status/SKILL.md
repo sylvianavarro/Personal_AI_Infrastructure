@@ -112,7 +112,29 @@ grep -i "blocker\|blocked" docs/*.md 2>/dev/null
 
 ## Status Report Formats
 
-### Daily Standup
+### Solo Developer Update
+
+When working solo, skip standup theater. Use git as your record:
+
+```markdown
+## [Date] Progress
+
+**Done:** [commits/features completed — pull from git log]
+**Next:** [top 1-2 priorities for next session]
+**Blocked:** [None / what's stopping progress]
+**Debt noted:** [shortcuts taken that need future cleanup]
+```
+
+**Generate automatically:**
+```bash
+echo "## $(date +%Y-%m-%d) Progress"
+echo "**Done:**"
+git log --oneline --since="yesterday" --author="$(git config user.name)" | sed 's/^/- /'
+echo "**WIP:**"
+git status --short | head -5 | sed 's/^/- /'
+```
+
+### Daily Standup (Team)
 
 ```markdown
 ## [Date] Standup
