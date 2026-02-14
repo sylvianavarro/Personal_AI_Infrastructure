@@ -537,6 +537,73 @@ Immediately flag these in code review:
 
 ---
 
+## Audit Mode
+
+When used as part of a design audit, report findings using all 11 categories above. Use the DesignAudit severity levels:
+
+| Level | Criteria | Action |
+|-------|----------|--------|
+| **Blocker** | A11y violation, functionality broken, security issue | Must fix before ship |
+| **Critical** | Major UX violation, design system inconsistency, performance issue | Should fix before ship |
+| **Warning** | Minor deviation, best practice not followed | Fix when possible |
+| **Info** | Enhancement suggestion, alternative approach | Consider for future |
+
+### Audit Output Template
+
+```markdown
+## UI Review: [Project Name]
+
+### Findings by Category
+
+#### Accessibility (12 rules)
+[Findings using A1-A12 IDs]
+
+#### Focus States (4 rules)
+[Findings using F1-F4 IDs]
+
+#### Forms (14 rules)
+[Findings using FO1-FO14 IDs]
+
+#### Performance (8 rules)
+[Findings using P1-P8 IDs]
+
+#### Images (4 rules)
+[Findings using I1-I4 IDs]
+
+#### Animation (6 rules)
+[Findings using AN1-AN6 IDs]
+
+#### Typography (6 rules)
+[Findings using T1-T6 IDs]
+
+#### Navigation (5 rules)
+[Findings using N1-N5 IDs]
+
+#### Touch/Mobile (5 rules)
+[Findings using TM1-TM5 IDs]
+
+#### Dark Mode (3 rules)
+[Findings using DM1-DM3 IDs]
+
+#### i18n (3 rules)
+[Findings using I18N1-I18N3 IDs]
+
+### Summary
+
+| Category | Blocker | Critical | Warning | Info | Total |
+|----------|---------|----------|---------|------|-------|
+| Accessibility | ... | ... | ... | ... | ... |
+| ... | ... | ... | ... | ... | ... |
+| **TOTAL** | **X** | **X** | **X** | **X** | **X** |
+
+### Top 5 Priority Fixes
+[Ranked by severity and blast radius]
+```
+
+Map every finding to a specific rule ID (A1-A12, F1-F4, FO1-FO14, P1-P8, I1-I4, AN1-AN6, T1-T6, N1-N5, TM1-TM5, DM1-DM3, I18N1-I18N3). Findings that don't match an existing rule should be reported as `XX-NEW` with a note suggesting the rule be added.
+
+---
+
 ## Integration
 
 | Skill | Integration |

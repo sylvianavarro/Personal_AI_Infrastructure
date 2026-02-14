@@ -63,6 +63,56 @@ AAA: 2px outline, 3:1 contrast (SC 2.4.13)
 | 11 | Apple HIG A11y | https://developer.apple.com/design/human-interface-guidelines/accessibility | Platform guidance |
 | 12 | Material A11y | https://m3.material.io/foundations/accessible-design/overview | DS approach |
 
+## Audit Mode
+
+When used as part of a design audit (via DesignAudit workflow or standalone), use this structured methodology:
+
+### Severity Levels
+
+Use these levels to match the DesignAudit workflow's standard severity system:
+
+| Level | ID Prefix | Criteria | Action |
+|-------|-----------|----------|--------|
+| **Blocker** | `B-` | WCAG A violation, prevents user access, breaks assistive tech | Must fix before ship |
+| **Critical** | `C-` | WCAG AA violation, significant barrier for some users | Should fix before ship |
+| **Warning** | `W-` | WCAG AAA miss, best practice not followed, inconsistent patterns | Fix when possible |
+| **Info** | `I-` | Enhancement, alternative approach, exceeds requirements | Consider for future |
+
+### Audit Output Template
+
+```markdown
+## WCAG 2.2 Audit: [Project Name]
+
+### Findings
+
+**[B-1] [SC X.X.X criterion name] Description**
+- File: `path/to/file.tsx:line`
+- Impact: [Who is affected and how]
+- Fix: [Specific code change]
+
+### Summary Table
+
+| ID | WCAG SC | Severity | Issue |
+|----|---------|----------|-------|
+| B-1 | X.X.X | Blocker | ... |
+
+### What the Codebase Does Well
+[List concrete positives — focus styles, ARIA usage, touch targets, etc.]
+```
+
+### Audit Checklist (Scan Order)
+
+1. **Viewport meta** — `user-scalable=no`? `maximum-scale=1`?
+2. **Skip navigation** — does a skip link exist as first focusable element?
+3. **Focus management** — screen transitions, modals, route changes
+4. **Color contrast** — brand colors against backgrounds (check actual hex values)
+5. **ARIA patterns** — correct roles, states, properties; semantic HTML preferred
+6. **Form labels** — `htmlFor`/`id` pairing, `aria-label` fallbacks
+7. **Touch targets** — 24x24 minimum (AA), 44x44 recommended (AAA)
+8. **Live regions** — `aria-live` appropriate frequency, not overly verbose
+9. **Reduced motion** — `prefers-reduced-motion` honored globally
+10. **Screen reader text** — `sr-only` class defined, `aria-hidden` on decorative content
+
 ## Usage
 
 When working on any UI element, invoke this skill to get relevant WCAG criteria.

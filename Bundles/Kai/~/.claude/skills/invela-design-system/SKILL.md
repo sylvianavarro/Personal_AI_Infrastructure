@@ -105,9 +105,49 @@ When making DS decisions:
 3. Update ds-audit-handoff skill with delta
 4. Implement in Figma/code
 
+## Audit Mode: External Projects
+
+When auditing Invela projects that don't use the main platform stack (e.g., Vite/vanilla CSS instead of Next.js/Tailwind/Radix):
+
+### Step 0: Detect Project Stack
+
+```
+1. Check package.json for framework (next, vite, cra, etc.)
+2. Check for tailwind.config.* — if absent, it's vanilla CSS
+3. Check for Radix imports — if absent, skip Radix-specific checks
+4. Check for CSS custom properties in :root — this is the token system
+```
+
+### Adapt Audit Scope
+
+| Main Platform | External Project | Audit Adjustment |
+|--------------|-----------------|------------------|
+| Tailwind utilities | Vanilla CSS classes | Check CSS custom properties for token usage |
+| Radix primitives | Custom components | Check semantic HTML and ARIA instead of Radix patterns |
+| Next.js routing | Vite SPA / static | Skip SSR-specific checks |
+| Tailwind `dark:` | `prefers-color-scheme` or none | Check native CSS dark mode approach |
+
+### What Still Applies
+
+Regardless of stack, these Invela DS requirements apply to all projects:
+- Brand colors must match `invela-brand` values (hex verification)
+- Typography must use approved font families
+- Touch targets must meet 44px AAA standard
+- Accessibility tokens (focus ring, reduced motion) must be present
+- Spacing should use a tokenized system (even if not the same token names)
+
+### What Doesn't Apply
+
+Skip these for non-platform projects:
+- Radix component API patterns
+- Tailwind config structure
+- Component library completeness (Button, Card, Input, Toast)
+- Design token naming conventions (project may use its own namespace)
+
 ## Usage
 
 Query this skill for:
 - "What's the current color system?"
 - "Is dark mode implemented?"
 - "What's the button specification?"
+- "Audit [project] against Invela DS" (triggers external project mode if non-platform stack detected)

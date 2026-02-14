@@ -111,6 +111,66 @@ When making a design decision, query like:
 Based on enterprise context (like Carbon) but with Radix primitives...
 ```
 
+## Audit Mode
+
+When benchmarking a codebase against industry design system standards, use this structured methodology.
+
+### Required Sections
+
+Audit these 10 dimensions, comparing against the 8 reference systems above:
+
+1. **Token Architecture** — tier count (flat vs. primitive/semantic/component), format (CSS/JSON/SCSS), pipeline (style-dictionary, manual)
+2. **Token Coverage** — % of values using tokens vs. raw px/hex; count raw values in stylesheets
+3. **Spacing System** — base unit, scale size, consistency with Material/Carbon/Polaris scales
+4. **Color System** — palette size, semantic aliases, dark mode support, theming capability
+5. **Typography** — scale steps, role tokens (display/headline/body/label), fluid vs. static, weight tokens
+6. **Component API** — variants, sizes, polymorphic (`as`), `forwardRef`, ARIA patterns, loading states
+7. **Component Coverage** — primitives available vs. patterns used only in CSS/markup
+8. **Accessibility** — touch targets, focus indicators, reduced motion, keyboard nav, ARIA landmarks
+9. **Motion/Animation** — duration tokens, easing tokens, reduced motion override
+10. **Consistency** — single source of truth? dual systems? CSS vs. JS token duplication?
+
+### Scoring Scale
+
+| Score | Meaning |
+|-------|---------|
+| 5 | Exceeds industry standard |
+| 4 | Matches industry standard |
+| 3 | Partial implementation |
+| 2 | Significant gaps |
+| 1 | Missing or broken |
+
+### Audit Output Template
+
+```markdown
+## Design Systems Benchmark: [Project Name] vs. Industry Standards
+
+### Scorecard
+
+| Dimension | Score (1-5) | Industry Median | Gap | Notes |
+|-----------|-------------|----------------|-----|-------|
+| Token Architecture | X | 4 | ... | ... |
+| Token Coverage | X | 4 | ... | ... |
+| ... | ... | ... | ... | ... |
+
+**Overall: X.X / 5.0**
+
+### Critical Findings (Priority Order)
+[Ranked by impact, with file:line references]
+
+### Strengths
+[What the project does better than or equal to reference systems]
+```
+
+### Severity Levels (match DesignAudit workflow)
+
+| Level | Criteria | Example |
+|-------|----------|---------|
+| **Blocker** | Renders component library non-functional | Tailwind classes without Tailwind installed |
+| **Critical** | Breaks token system or creates dual source of truth | CSS tokens + JS constants with same values |
+| **Warning** | Deviates from industry norms without justification | Flat token layer, no semantic aliases |
+| **Info** | Ahead of or equivalent to reference systems | Fluid `clamp()` typography |
+
 ## See Also
 - `patterns/` - Detailed component patterns
 - `tokens/` - Token comparison tables

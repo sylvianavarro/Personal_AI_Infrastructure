@@ -61,6 +61,64 @@ For detailed specifications, see:
 **Voice:** Informed, Assured, Decisive
 **Tagline:** "Open finance, covered."
 
+## Audit Mode: Brand Compliance Scoring
+
+When auditing a project for brand compliance, use this weighted scoring methodology:
+
+### Scoring Categories
+
+| Category | Weight | What to Check |
+|----------|--------|---------------|
+| Primary brand color (CSS/tokens) | 25% | Are `#4166F5` (Deep Blue) and scale used correctly in CSS/tokens? |
+| Primary brand color (components) | 15% | Do React/Vue/etc. components use brand blue, not off-brand colors? |
+| Typography | 15% | Correct font families (Plus Jakarta Sans, Lexend, Sulphur Point)? |
+| Logo usage | 10% | Correct logo files present? No distortion or recoloring? |
+| Visual identity (radius/shadow/spacing) | 15% | Consistent with DS tokens? |
+| Asset integrity | 10% | All referenced images/icons exist and load? |
+| PWA/meta brand consistency | 10% | manifest theme_color, meta theme-color, OG images match brand? |
+
+### PWA Brand Checks
+
+When a project has a PWA manifest or meta tags, verify:
+
+```
+1. manifest.json / manifest.webmanifest:
+   - "theme_color" must be "#4166F5" (Deep Blue) — NOT orange, NOT black
+   - "background_color" should match app background
+   - Icons (192x192, 512x512) must exist in referenced path
+
+2. index.html <head>:
+   - <meta name="theme-color" content="#4166F5">
+   - <meta name="msapplication-TileColor" content="#4166F5">
+   - apple-touch-icon must exist at referenced path
+
+3. Storybook (if present):
+   - preview.ts "brand" background should use Invela blue, not orange
+```
+
+### Audit Output Template
+
+```markdown
+## Brand Compliance Audit: [Project Name]
+
+### Scoring
+
+| Category | Score | Weight | Weighted |
+|----------|-------|--------|----------|
+| Primary brand color (CSS) | X/100 | 25% | X.XX |
+| Primary brand color (components) | X/100 | 15% | X.XX |
+| Typography | X/100 | 15% | X.XX |
+| Logo usage | X/100 | 10% | X.XX |
+| Visual identity | X/100 | 15% | X.XX |
+| Asset integrity | X/100 | 10% | X.XX |
+| PWA/meta consistency | X/100 | 10% | X.XX |
+
+**Overall Brand Compliance Score: X.X / 100**
+
+### Priority Fixes (Ranked P0-P3)
+[P0 = broken/off-brand, P1 = wrong values, P2 = missing assets, P3 = cosmetic]
+```
+
 ## Self-Improvement
 
 This skill should be updated when:
