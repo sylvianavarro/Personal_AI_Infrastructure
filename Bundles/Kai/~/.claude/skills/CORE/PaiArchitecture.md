@@ -2,7 +2,7 @@
 
 > Skill inventory for ~/.claude/skills/. Update when skills are added or removed.
 
-**Last Updated:** 2026-02-14
+**Last Updated:** 2026-02-16
 
 ## Skill Summary
 
@@ -57,6 +57,24 @@
 | diagram-standards | Documentation | Community (sylvianavarro) |
 | AssetManagement | Assets | Community (sylvianavarro) |
 
+## Tools
+
+| Tool | Type | Source |
+|------|------|--------|
+| GenerateSkillIndex.ts | Bun/TS | Custom |
+| PaiArchitecture.ts | Bun/TS | Custom |
+| SkillSearch.ts | Bun/TS | Custom |
+| skill-hygiene.sh | Bash | Cherry-picked from sylvianavarro (commit 95f8070), adapted |
+
 ## Superpowers Skills (plugin-based, v4.2.0)
 
 brainstorming, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, subagent-driven-development, systematic-debugging, test-driven-development, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+
+## Recent Cherry-Picks
+
+See `docs/cherry-picks/2026-02-16-sylvia-hygiene-compression.md` for full provenance.
+
+| Date | Source | Items | Reason |
+|------|--------|-------|--------|
+| 2026-02-16 | sylvianavarro `95f8070` | skill-hygiene.sh | Skill ecosystem linter (7 checks). Found 21 violations, 11 warnings on first run. |
+| 2026-02-16 | sylvianavarro `0aea45d` | writing-skills compression | -44% tokens (-1,898) per context load. Extracted testing methodology to separate file. |
