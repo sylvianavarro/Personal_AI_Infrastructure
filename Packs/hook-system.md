@@ -1,6 +1,6 @@
 ---
-name: Kai Hook System
-pack-id: danielmiessler-kai-hook-system-core-v1.0.0
+name: Hook System
+pack-id: danielmiessler-hook-system-core-v1.0.0
 version: 1.0.0
 author: danielmiessler
 description: Event-driven automation framework for Claude Code - the foundation for all hook-based capabilities including security validation, session management, and context injection
@@ -12,10 +12,10 @@ keywords: [hooks, automation, events, security, validation, sessions, context, c
 ---
 
 <p align="center">
-  <img src="icons/kai-hook-system.png" alt="Kai Hook System" width="256">
+  <img src="icons/kai-hook-system.png" alt="Hook System" width="256">
 </p>
 
-# Kai Hook System (kai-hook-system)
+# Hook System (hook-system)
 
 > Event-driven automation framework for Claude Code - the foundation for all hook-based capabilities
 
@@ -26,7 +26,7 @@ You are receiving a PAI Pack - a modular upgrade for AI agent systems.
 
 **What is a Pack?** See: [Pack System](../README.md#pack-system)
 
-This Pack adds event-driven automation to your AI infrastructure. The Kai Hook System is the foundation that enables all other hook-based Packs to work:
+This Pack adds event-driven automation to your AI infrastructure. The Hook System is the foundation that enables all other hook-based Packs to work:
 
 - **Security Validation**: Block dangerous commands before execution
 - **Session Management**: Initialize sessions with context and state
@@ -94,7 +94,7 @@ Hooks are the foundation for building intelligent AI infrastructure. Once you un
 
 ## The Solution
 
-The Kai Hook System provides a complete framework for event-driven automation:
+The Hook System provides a complete framework for event-driven automation:
 
 **Core Architecture:**
 
@@ -273,7 +273,7 @@ The hook system transforms Claude Code from a standalone tool into an **observab
 
 This sounds similar to Claude Code's built-in hooks in settings.json, which also intercept events. What makes this approach different?
 
-Claude Code exposes hook events but provides no framework for using them effectively. You get raw events with no patterns for security validation, no libraries for safe execution, no templates for common use cases. The Kai Hook System provides production-ready hook implementations that transform these raw events into intelligent automation. Every hook follows fail-safe patterns that never block agent work, with shared libraries for observability, logging, and integration.
+Claude Code exposes hook events but provides no framework for using them effectively. You get raw events with no patterns for security validation, no libraries for safe execution, no templates for common use cases. The Hook System provides production-ready hook implementations that transform these raw events into intelligent automation. Every hook follows fail-safe patterns that never block agent work, with shared libraries for observability, logging, and integration.
 
 - Production-ready security validation for every Bash command
 - Fail-safe patterns ensure hooks never block work
@@ -1453,21 +1453,21 @@ if (existsSync(projectContextPath)) {
 
 ## Works Well With
 
-- **kai-history-system** - Uses hooks for capturing session work and learnings
-- **kai-voice-system** - Uses hooks for voice notification triggers
-- **kai-core-install** - Uses SessionStart hooks for CORE skill context injection and response formatting
+- **history-system** - Uses hooks for capturing session work and learnings
+- **voice-system** - Uses hooks for voice notification triggers
+- **core-install** - Uses SessionStart hooks for CORE skill context injection and response formatting
 
 ## Recommended
 
-- **kai-history-system** - Capture all work automatically via Stop/SubagentStop hooks
-- **kai-voice-system** - Add voice notifications to hook events
+- **history-system** - Capture all work automatically via Stop/SubagentStop hooks
+- **voice-system** - Add voice notifications to hook events
 
 ## Relationships
 
 ### Parent Of
-- **kai-history-system** - History capture depends on hook events (Stop, SubagentStop)
-- **kai-core-install** - Skill loading uses SessionStart hooks for CORE context injection
-- **kai-voice-system** - Voice notifications triggered via hooks
+- **history-system** - History capture depends on hook events (Stop, SubagentStop)
+- **core-install** - Skill loading uses SessionStart hooks for CORE context injection
+- **voice-system** - Voice notifications triggered via hooks
 
 ### Child Of
 *None - this is the foundation layer.*

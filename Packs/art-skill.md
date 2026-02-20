@@ -1,6 +1,6 @@
 ---
-name: Kai Art Skill
-pack-id: danielmiessler-kai-art-skill-core-v1.1.0
+name: Art Skill
+pack-id: danielmiessler-art-skill-core-v1.1.0
 version: 1.1.0
 author: danielmiessler
 description: Visual content generation with Excalidraw hand-drawn aesthetic - technical diagrams, comics, editorial illustrations
@@ -12,10 +12,10 @@ keywords: [art, visualization, diagrams, comics, excalidraw, hand-drawn, technic
 ---
 
 <p align="center">
-  <img src="icons/kai-art-skill.png" alt="Kai Art Skill" width="256">
+  <img src="icons/kai-art-skill.png" alt="Art Skill" width="256">
 </p>
 
-# Kai Art Skill
+# Art Skill
 
 > Visual content generation system with Excalidraw hand-drawn aesthetic - technical diagrams, comics, and editorial illustrations with consistent dark-mode styling
 
@@ -57,7 +57,7 @@ Please follow the installation instructions below to integrate this pack into yo
 **Summary:**
 - **Files created:** 8+ (skill, tool, workflows)
 - **Hooks registered:** 0 (skill-based, not hook-based)
-- **Dependencies:** kai-core-install (required), API keys for image models
+- **Dependencies:** core-install (required), API keys for image models
 
 ---
 

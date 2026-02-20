@@ -1,6 +1,6 @@
 ---
-name: Kai History System
-pack-id: danielmiessler-kai-history-system-core-v1.0.0
+name: History System
+pack-id: danielmiessler-history-system-core-v1.0.0
 version: 1.0.0
 author: danielmiessler
 description: Granular context-tracking system for the entire AI infrastructure - captures all work, decisions, and learnings automatically
@@ -8,15 +8,15 @@ type: feature
 purpose-type: [productivity, automation, development]
 platform: claude-code
 dependencies:
-  - kai-hook-system (required) - History capture depends on hook events
+  - hook-system (required) - History capture depends on hook events
 keywords: [history, documentation, memory, capture, hooks, sessions, learnings, automation, context, recovery, debugging]
 ---
 
 <p align="center">
-  <img src="icons/kai-history-system.png" alt="Kai History System" width="256">
+  <img src="icons/kai-history-system.png" alt="History System" width="256">
 </p>
 
-# Kai History System (kai-history-system)
+# History System (history-system)
 
 > Granular context-tracking system for the entire AI infrastructure - captures all work, decisions, and learnings automatically with zero manual effort
 
@@ -27,7 +27,7 @@ You are receiving a PAI Pack - a modular upgrade for AI agent systems.
 
 **What is a Pack?** See: [Pack System](../README.md#pack-system)
 
-This pack adds automatic memory to your entire AI infrastructure. The Kai History System is not just about agent outputs - it's a granular context-tracking system for EVERYTHING that happens in your system:
+This pack adds automatic memory to your entire AI infrastructure. The History System is not just about agent outputs - it's a granular context-tracking system for EVERYTHING that happens in your system:
 
 - **Continuous Learning**: Capture insights as they happen
 - **Bug Fixing**: Trace exactly what was done when debugging
@@ -56,7 +56,7 @@ Please follow the installation instructions below to integrate this pack into yo
 **Summary:**
 - **Files created:** 5 + history directory structure
 - **Hooks registered:** 7 (PreToolUse, PostToolUse, Stop, SubagentStop, SessionStart, SessionEnd, UserPromptSubmit)
-- **Dependencies:** kai-hook-system (required)
+- **Dependencies:** hook-system (required)
 
 ---
 
@@ -99,7 +99,7 @@ Traditional AI systems treat each interaction as ephemeral. But real work is cum
 Without a history system, your AI is brilliant but amnesiac. Every session is day one. Every context is fresh. Every lesson must be relearned.
 
 ## The Solution
-The Kai History System solves this through **automatic, hook-based documentation**. Instead of requiring manual effort, it captures work as a byproduct of doing the work.
+The History System solves this through **automatic, hook-based documentation**. Instead of requiring manual effort, it captures work as a byproduct of doing the work.
 
 **Core Architecture:**
 
@@ -340,7 +340,7 @@ The history system transforms ephemeral AI interactions into **permanent, search
 
 This sounds similar to ChatGPT's Memory feature or vector databases like Pinecone, which also preserve context. What makes this approach different?
 
-Memory systems and vector databases store what you explicitly save or what gets embedded. They require manual tagging, intentional capture, and structured queries. The Kai History System captures everything automatically through hooks—every agent output, every research finding, every debugging session—without any manual effort. History is organized by time and category, searchable by grep, and stored in plain markdown. You work normally; documentation handles itself.
+Memory systems and vector databases store what you explicitly save or what gets embedded. They require manual tagging, intentional capture, and structured queries. The History System captures everything automatically through hooks—every agent output, every research finding, every debugging session—without any manual effort. History is organized by time and category, searchable by grep, and stored in plain markdown. You work normally; documentation handles itself.
 
 - Automatic capture through hooks needs no manual effort
 - Plain markdown files searchable with standard Unix tools
@@ -356,7 +356,7 @@ Memory systems and vector databases store what you explicitly save or what gets 
 - **Bun runtime**: `curl -fsSL https://bun.sh/install | bash`
 - **Claude Code** (or compatible agent system with hook support)
 - **Write access** to `$PAI_DIR/` (or your PAI directory)
-- **kai-hook-system Pack** installed (this pack depends on the hook infrastructure)
+- **hook-system Pack** installed (this pack depends on the hook infrastructure)
 
 ---
 
@@ -373,7 +373,7 @@ PAI_CHECK="${PAI_DIR:-$HOME/.config/pai}"
 if [ -f "$PAI_CHECK/hooks/lib/observability.ts" ]; then
   echo "✓ Hook system is installed"
 else
-  echo "❌ Hook system NOT installed - install kai-hook-system first!"
+  echo "❌ Hook system NOT installed - install hook-system first!"
 fi
 
 # Check hooks directory exists
@@ -381,7 +381,7 @@ if [ -d "$PAI_CHECK/hooks" ]; then
   echo "✓ Hooks directory exists"
   ls "$PAI_CHECK/hooks"/*.ts 2>/dev/null | head -5
 else
-  echo "❌ Hooks directory missing - install kai-hook-system first!"
+  echo "❌ Hooks directory missing - install hook-system first!"
 fi
 ```
 
@@ -426,7 +426,7 @@ done
 | **Clean Install** | No history dir, no hooks | Proceed normally with Step 1 |
 | **History Directory Exists** | Files in history/ | New captures added alongside; existing files preserved |
 | **History Hooks Exist** | Hook files present | Compare versions; backup old hooks before replacing |
-| **Missing Dependencies** | No hook system | Install kai-hook-system first |
+| **Missing Dependencies** | No hook system | Install hook-system first |
 
 #### Step 0.4: Backup Existing History (If Needed)
 
@@ -1583,14 +1583,14 @@ function determineSessionFocus(filesChanged: string[], commandsExecuted: string[
 
 ## Works Well With
 
-- **kai-hook-system** - Required foundation; provides the event stream this pack captures
-- **kai-core-install** - Skills can reference past learnings and research from history; CORE skill guides what gets captured
-- **kai-voice-system** - Voice notifications can announce when significant history is captured
+- **hook-system** - Required foundation; provides the event stream this pack captures
+- **core-install** - Skills can reference past learnings and research from history; CORE skill guides what gets captured
+- **voice-system** - Voice notifications can announce when significant history is captured
 
 ## Recommended
 
-- **kai-hook-system** - Required dependency; without it no events are captured
-- **kai-core-install** - Enables skill-based categorization of learnings
+- **hook-system** - Required dependency; without it no events are captured
+- **core-install** - Enables skill-based categorization of learnings
 
 ## Relationships
 
@@ -1598,11 +1598,11 @@ function determineSessionFocus(filesChanged: string[], commandsExecuted: string[
 *None - this is a data capture layer, not a foundation for other packs.*
 
 ### Child Of
-- **kai-hook-system** - Depends entirely on hook events (Stop, SubagentStop, SessionEnd) for all capture
+- **hook-system** - Depends entirely on hook events (Stop, SubagentStop, SessionEnd) for all capture
 
 ### Sibling Of
-- **kai-core-install** - Both are foundation packs that depend on kai-hook-system
-- **kai-voice-system** - Both consume hook events for their functionality
+- **core-install** - Both are foundation packs that depend on hook-system
+- **voice-system** - Both consume hook events for their functionality
 
 ### Part Of Collection
 **Kai Core Bundle** - One of 4 foundational packs that together create the complete Kai personal AI infrastructure.

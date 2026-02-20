@@ -1,21 +1,21 @@
 ---
-name: Kai Observability Server
-pack-id: danielmiessler-kai-observability-server-core-v1.0.0
+name: Observability Server
+pack-id: danielmiessler-observability-server-core-v1.0.0
 version: 1.0.0
 author: danielmiessler
 description: Real-time multi-agent activity monitoring dashboard with WebSocket streaming - see exactly what your AI agents are doing as they work
 type: feature
 purpose-type: [observability, monitoring, development, debugging]
 platform: claude-code
-dependencies: [kai-hook-system]
+dependencies: [hook-system]
 keywords: [observability, dashboard, monitoring, agents, websocket, streaming, events, debugging, visualization, real-time]
 ---
 
 <p align="center">
-  <img src="icons/kai-observability-server-v2.png" alt="Kai Observability Server" width="256">
+  <img src="icons/kai-observability-server-v2.png" alt="Observability Server" width="256">
 </p>
 
-# Kai Observability Server (kai-observability-server)
+# Observability Server (observability-server)
 
 > Real-time multi-agent activity monitoring dashboard - see exactly what your AI agents are doing as they work
 
@@ -36,7 +36,7 @@ This Pack adds real-time monitoring capabilities to your AI infrastructure. The 
 
 **Core principle:** You can't improve what you can't see. This dashboard gives you complete visibility into your AI's operations.
 
-**Dependency:** Requires the [kai-hook-system](kai-hook-system.md) pack to capture events.
+**Dependency:** Requires the [hook-system](hook-system.md) pack to capture events.
 
 Please follow the installation instructions below to integrate this Pack into your infrastructure.
 
@@ -56,7 +56,7 @@ Please follow the installation instructions below to integrate this Pack into yo
 **Summary:**
 - **Files created:** 8+ (server, dashboard, hooks)
 - **Hooks registered:** 7 (all event types via capture-all-events)
-- **Dependencies:** kai-hook-system (required)
+- **Dependencies:** hook-system (required)
 
 ---
 
@@ -270,7 +270,7 @@ Raw log tailing gives you text that scrolls by too fast to read. The Observabili
 - **Bun runtime**: `curl -fsSL https://bun.sh/install | bash`
 - **Node.js 18+** (for Vite dev server)
 - **Claude Code** (or compatible agent system)
-- **kai-hook-system** pack installed
+- **hook-system** pack installed
 - **Write access** to `$PAI_DIR/`
 
 ---
@@ -282,7 +282,7 @@ Raw log tailing gives you text that scrolls by too fast to read. The Observabili
 #### Step 0.1: Verify Hook System
 
 ```bash
-# Check that kai-hook-system is installed
+# Check that hook-system is installed
 ls -la $PAI_DIR/hooks/
 # Should show: security-validator.ts, initialize-session.ts, etc.
 
@@ -1682,19 +1682,19 @@ const subAgentTypes = [
 
 ## Related Work
 
-- **kai-hook-system** - Required dependency - provides the event capture hooks
+- **hook-system** - Required dependency - provides the event capture hooks
 - **Grafana/Prometheus** - Enterprise monitoring inspiration
 - **Datadog APM** - Distributed tracing concepts
 
 ## Works Well With
 
-- **kai-hook-system** - Required - captures the events that this pack displays
-- **kai-core-install** - Skills show their activity in the dashboard
-- **kai-voice-system** - Voice notifications can be triggered from events
+- **hook-system** - Required - captures the events that this pack displays
+- **core-install** - Skills show their activity in the dashboard
+- **voice-system** - Voice notifications can be triggered from events
 
 ## Recommended
 
-- **kai-history-system** - Permanent storage of events for later analysis
+- **history-system** - Permanent storage of events for later analysis
 
 ## Relationships
 
@@ -1702,10 +1702,10 @@ const subAgentTypes = [
 *None*
 
 ### Child Of
-- **kai-hook-system** - Depends on hooks for event capture
+- **hook-system** - Depends on hooks for event capture
 
 ### Sibling Of
-- **kai-history-system** - Both consume hook events, different purposes
+- **history-system** - Both consume hook events, different purposes
 
 ### Part Of Collection
 **Kai Core Bundle** - One of the foundational packs that together create the complete Kai personal AI infrastructure.

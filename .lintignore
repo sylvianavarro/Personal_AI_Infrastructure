@@ -1,0 +1,12 @@
+# Templates are reference docs, intentionally long
+Tools/PAIBundleTemplate.md
+Tools/PAIPackTemplate.md
+
+# Upstream README, not agent-edited
+README.md
+
+# Design docs are allowed to be detailed
+docs/plans/
+
+# Bundle installer is generated/complex by nature
+Bundles/Kai/install.ts

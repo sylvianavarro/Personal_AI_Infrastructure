@@ -1,20 +1,140 @@
 {
-  "generated": "2025-01-01T00:00:00.000Z",
-  "totalSkills": 2,
+  "generated": "2026-02-20T09:06:08Z",
+  "totalSkills": 41,
   "alwaysLoadedCount": 1,
-  "deferredCount": 1,
+  "deferredCount": 40,
   "skills": {
-    "core": {
+    "acceptance": {
+      "name": "acceptance",
+      "path": "acceptance/SKILL.md",
+      "fullDescription": "Write acceptance criteria for stories. Use when defining done for user stories or creating test cases.",
+      "triggers": [
+        "acceptance",
+        "criteria",
+        "stories",
+        "defining",
+        "done",
+        "test",
+        "cases"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "api-testing": {
+      "name": "api-testing",
+      "path": "api-testing/SKILL.md",
+      "fullDescription": "Use when testing REST APIs, GraphQL endpoints, writing integration tests for backends, or setting up API test automation.",
+      "triggers": [
+        "testing",
+        "REST",
+        "API",
+        "GraphQL",
+        "endpoints",
+        "integration",
+        "backend",
+        "automation"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "AssetManagement": {
+      "name": "AssetManagement",
+      "path": "AssetManagement/SKILL.md",
+      "fullDescription": "Brand asset management with constraint enforcement. USE WHEN creating images, logos, icons, colors, typography, visual assets, or auditing brand consistency for any project.",
+      "triggers": [
+        "brand",
+        "asset",
+        "images",
+        "logos",
+        "icons",
+        "colors",
+        "typography",
+        "visual",
+        "audit",
+        "consistency",
+        "palette",
+        "contrast"
+      ],
+      "workflows": [
+        "Initialize",
+        "Create",
+        "Audit"
+      ],
+      "tier": "deferred"
+    },
+    "brainstorming": {
+      "name": "brainstorming",
+      "path": "brainstorming/SKILL.md",
+      "fullDescription": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
+      "triggers": [
+        "creative",
+        "features",
+        "components",
+        "functionality",
+        "behavior",
+        "intent",
+        "requirements",
+        "design"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "catchup": {
+      "name": "catchup",
+      "path": "catchup/SKILL.md",
+      "fullDescription": "Restore context at session start. Use when starting a new session, returning to work after a break, or needing to understand current project state quickly.",
+      "triggers": [
+        "restore",
+        "context",
+        "session",
+        "start",
+        "returning",
+        "break",
+        "project",
+        "state"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "commit": {
+      "name": "commit",
+      "path": "commit/SKILL.md",
+      "fullDescription": "Smart commit with pre-commit checks and documentation refresh. Use when ready to commit changes to ensure quality and documentation stay in sync.",
+      "triggers": [
+        "commit",
+        "pre-commit",
+        "checks",
+        "documentation",
+        "refresh",
+        "quality",
+        "sync"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "completion-promise-loop": {
+      "name": "completion-promise-loop",
+      "path": "completion-promise-loop/SKILL.md",
+      "fullDescription": "Use when a task has verifiable success criteria and may need multiple agent attempts to converge \u2014 orchestrates promise \u2192 dispatch \u2192 verify \u2192 refine with bounded iterations",
+      "triggers": [
+        "promise",
+        "convergence",
+        "iterative",
+        "verifiable",
+        "criteria",
+        "bounded",
+        "loop",
+        "dispatch"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "CORE": {
       "name": "CORE",
       "path": "CORE/SKILL.md",
       "fullDescription": "Personal AI Infrastructure core. AUTO-LOADS at session start. USE WHEN any session begins OR user asks about identity, response format, contacts, stack preferences.",
       "triggers": [
-        "any",
         "session",
-        "begins",
-        "user",
-        "asks",
-        "about",
         "identity",
         "response",
         "format",
@@ -25,7 +145,7 @@
       "workflows": [],
       "tier": "always"
     },
-    "createskill": {
+    "CreateSkill": {
       "name": "CreateSkill",
       "path": "CreateSkill/SKILL.md",
       "fullDescription": "Create and validate skills. USE WHEN create skill, new skill, skill structure, canonicalize. SkillSearch('createskill') for docs.",
@@ -34,7 +154,512 @@
         "skill",
         "new",
         "structure",
-        "canonicalize"
+        "canonicalize",
+        "validate"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "decision-record": {
+      "name": "decision-record",
+      "path": "decision-record/SKILL.md",
+      "fullDescription": "Document significant technical decisions. Use when making architectural choices, technology selections, or establishing patterns that affect system design.",
+      "triggers": [
+        "decision",
+        "architectural",
+        "choices",
+        "technology",
+        "selections",
+        "patterns",
+        "design"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "diagram-standards": {
+      "name": "diagram-standards",
+      "path": "diagram-standards/SKILL.md",
+      "fullDescription": "Use when creating SVG diagrams for documentation \u2014 architecture diagrams, flow charts, data flow diagrams, sequence diagrams, or dashboard wireframes \u2014 ensures accessible, brand-consistent, version-controllable diagrams",
+      "triggers": [
+        "SVG",
+        "diagram",
+        "architecture",
+        "flowchart",
+        "data-flow",
+        "sequence",
+        "wireframe",
+        "accessible"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "dispatching-parallel-agents": {
+      "name": "dispatching-parallel-agents",
+      "path": "dispatching-parallel-agents/SKILL.md",
+      "fullDescription": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
+      "triggers": [
+        "parallel",
+        "independent",
+        "tasks",
+        "agents",
+        "concurrent",
+        "dispatching"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "docs-architecture": {
+      "name": "docs-architecture",
+      "path": "docs-architecture/SKILL.md",
+      "fullDescription": "Use when structuring documentation for a project, product, or organization \u2014 choosing what to write, for whom, at what depth, identifying documentation gaps, or creating a documentation strategy from scratch",
+      "triggers": [
+        "documentation",
+        "structure",
+        "strategy",
+        "gaps",
+        "audience",
+        "depth",
+        "organizing"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "docs-hygiene": {
+      "name": "docs-hygiene",
+      "path": "docs-hygiene/SKILL.md",
+      "fullDescription": "Use when adding, modifying, or reviewing skills \u2014 audits skill files for staleness, cross-reference integrity, and sanitization issues",
+      "triggers": [
+        "hygiene",
+        "audit",
+        "staleness",
+        "cross-reference",
+        "sanitization",
+        "skill-health"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "estimate": {
+      "name": "estimate",
+      "path": "estimate/SKILL.md",
+      "fullDescription": "Estimate complexity and effort for tickets or features. Use when sizing work for sprint planning, providing estimates to stakeholders, or breaking down large tasks.",
+      "triggers": [
+        "estimate",
+        "complexity",
+        "effort",
+        "sizing",
+        "sprint",
+        "planning",
+        "stakeholders"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "executing-plans": {
+      "name": "executing-plans",
+      "path": "executing-plans/SKILL.md",
+      "fullDescription": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
+      "triggers": [
+        "executing",
+        "implementation",
+        "plan",
+        "session",
+        "review",
+        "checkpoints"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "finishing-a-development-branch": {
+      "name": "finishing-a-development-branch",
+      "path": "finishing-a-development-branch/SKILL.md",
+      "fullDescription": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup",
+      "triggers": [
+        "finishing",
+        "branch",
+        "merge",
+        "PR",
+        "cleanup",
+        "complete",
+        "integrate"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "fixing-test-suites": {
+      "name": "fixing-test-suites",
+      "path": "fixing-test-suites/SKILL.md",
+      "fullDescription": "Use when fixing failing tests, especially auth mocking issues in Flask/pytest or React/Jest service mocking patterns",
+      "triggers": [
+        "fixing",
+        "tests",
+        "failing",
+        "auth",
+        "mocking",
+        "Flask",
+        "pytest",
+        "React",
+        "Jest"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "hooks-authoring": {
+      "name": "hooks-authoring",
+      "path": "hooks-authoring/SKILL.md",
+      "fullDescription": "Use when creating, modifying, or debugging Claude Code hooks \u2014 covers exit code semantics, event types, input parsing, registration, and testing",
+      "triggers": [
+        "hooks",
+        "middleware",
+        "exit-code",
+        "PreToolUse",
+        "PostToolUse",
+        "validator",
+        "guardrail"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "knowledge-accumulation": {
+      "name": "knowledge-accumulation",
+      "path": "knowledge-accumulation/SKILL.md",
+      "fullDescription": "Capture and reuse institutional knowledge. Use when solving tricky bugs, making architectural decisions, discovering integration quirks, or establishing reusable patterns. Every problem solved once is solved forever.",
+      "triggers": [
+        "knowledge",
+        "capture",
+        "reuse",
+        "institutional",
+        "patterns",
+        "bugs",
+        "integration",
+        "quirks"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "pr-completion-loop": {
+      "name": "pr-completion-loop",
+      "path": "pr-completion-loop/SKILL.md",
+      "fullDescription": "Use when implementation is done and you need to get from \"code written\" to \"PR ready\" \u2014 orchestrates check \u2192 fix \u2192 review \u2192 verify in a convergent loop with max 3 iterations",
+      "triggers": [
+        "PR",
+        "completion",
+        "loop",
+        "check",
+        "fix",
+        "review",
+        "verify",
+        "convergent",
+        "ready"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "prd": {
+      "name": "prd",
+      "path": "prd/SKILL.md",
+      "fullDescription": "Create Product Requirements Documents. Use when defining new features, documenting product decisions, or aligning stakeholders on scope.",
+      "triggers": [
+        "PRD",
+        "product",
+        "requirements",
+        "document",
+        "features",
+        "scope",
+        "stakeholders"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "prioritize": {
+      "name": "prioritize",
+      "path": "prioritize/SKILL.md",
+      "fullDescription": "Prioritize work using RICE framework. Use when deciding what to work on next, ordering backlogs, or making trade-off decisions.",
+      "triggers": [
+        "prioritize",
+        "RICE",
+        "backlog",
+        "trade-off",
+        "ordering",
+        "deciding"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "project-instructions": {
+      "name": "project-instructions",
+      "path": "project-instructions/SKILL.md",
+      "fullDescription": "Use when creating project-level CLAUDE.md files, generating AGENTS.md for cross-tool compatibility, or setting up per-project agent instructions",
+      "triggers": [
+        "project",
+        "CLAUDE.md",
+        "AGENTS.md",
+        "instructions",
+        "cross-tool",
+        "generation"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "raid": {
+      "name": "raid",
+      "path": "raid/SKILL.md",
+      "fullDescription": "Track Risks, Assumptions, Issues, and Dependencies. Use when managing project risks, surfacing blockers, or maintaining project health visibility.",
+      "triggers": [
+        "RAID",
+        "risks",
+        "assumptions",
+        "issues",
+        "dependencies",
+        "blockers",
+        "health"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "react-performance": {
+      "name": "react-performance",
+      "path": "react-performance/SKILL.md",
+      "fullDescription": "React and Next.js performance optimization. Use when writing, reviewing, or refactoring React/Next.js code, optimizing bundle size, or fixing performance issues.",
+      "triggers": [
+        "React",
+        "Next.js",
+        "performance",
+        "optimization",
+        "bundle",
+        "refactoring"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "receiving-code-review": {
+      "name": "receiving-code-review",
+      "path": "receiving-code-review/SKILL.md",
+      "fullDescription": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
+      "triggers": [
+        "receiving",
+        "review",
+        "feedback",
+        "suggestions",
+        "rigor",
+        "verification",
+        "pushback"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "requesting-code-review": {
+      "name": "requesting-code-review",
+      "path": "requesting-code-review/SKILL.md",
+      "fullDescription": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+      "triggers": [
+        "requesting",
+        "review",
+        "completing",
+        "features",
+        "merging",
+        "verify",
+        "requirements"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "sprint": {
+      "name": "sprint",
+      "path": "sprint/SKILL.md",
+      "fullDescription": "Sprint planning and management. Use when starting a sprint, reviewing capacity, or tracking sprint progress.",
+      "triggers": [
+        "sprint",
+        "planning",
+        "capacity",
+        "tracking",
+        "progress",
+        "management"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "status": {
+      "name": "status",
+      "path": "status/SKILL.md",
+      "fullDescription": "Generate project status reports. Use when preparing for standups, stakeholder updates, or documenting current project state.",
+      "triggers": [
+        "status",
+        "report",
+        "standup",
+        "stakeholder",
+        "updates",
+        "project"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "stories": {
+      "name": "stories",
+      "path": "stories/SKILL.md",
+      "fullDescription": "Create user stories from requirements. Use when breaking down features into implementable units or preparing backlog items.",
+      "triggers": [
+        "stories",
+        "user",
+        "requirements",
+        "features",
+        "backlog",
+        "implementable"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "subagent-driven-development": {
+      "name": "subagent-driven-development",
+      "path": "subagent-driven-development/SKILL.md",
+      "fullDescription": "Use when executing implementation plans with independent tasks in the current session",
+      "triggers": [
+        "subagent",
+        "executing",
+        "implementation",
+        "independent",
+        "tasks",
+        "session"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "systematic-debugging": {
+      "name": "systematic-debugging",
+      "path": "systematic-debugging/SKILL.md",
+      "fullDescription": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
+      "triggers": [
+        "debugging",
+        "bug",
+        "test",
+        "failure",
+        "unexpected",
+        "behavior",
+        "fixes"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "test-driven-development": {
+      "name": "test-driven-development",
+      "path": "test-driven-development/SKILL.md",
+      "fullDescription": "Use when implementing any feature or bugfix, before writing implementation code",
+      "triggers": [
+        "TDD",
+        "test-driven",
+        "implementing",
+        "feature",
+        "bugfix",
+        "red-green"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "test-patterns": {
+      "name": "test-patterns",
+      "path": "test-patterns/SKILL.md",
+      "fullDescription": "Use when writing tests, organizing test suites, creating mocks/fixtures, or establishing testing conventions for a project.",
+      "triggers": [
+        "test",
+        "patterns",
+        "suites",
+        "mocks",
+        "fixtures",
+        "conventions",
+        "organizing"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "ui-review": {
+      "name": "ui-review",
+      "path": "ui-review/SKILL.md",
+      "fullDescription": "Audit UI code against 100+ best practices for accessibility, performance, and UX. Use when reviewing frontend code, checking accessibility, or auditing design implementation.",
+      "triggers": [
+        "UI",
+        "audit",
+        "accessibility",
+        "a11y",
+        "performance",
+        "UX",
+        "frontend",
+        "design"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "using-git-worktrees": {
+      "name": "using-git-worktrees",
+      "path": "using-git-worktrees/SKILL.md",
+      "fullDescription": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification",
+      "triggers": [
+        "worktree",
+        "isolation",
+        "feature",
+        "workspace",
+        "git",
+        "directory",
+        "safety"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "using-superpowers": {
+      "name": "using-superpowers",
+      "path": "using-superpowers/SKILL.md",
+      "fullDescription": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions",
+      "triggers": [
+        "superpowers",
+        "skills",
+        "conversation",
+        "start",
+        "invocation"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "verification-before-completion": {
+      "name": "verification-before-completion",
+      "path": "verification-before-completion/SKILL.md",
+      "fullDescription": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
+      "triggers": [
+        "verification",
+        "complete",
+        "passing",
+        "committing",
+        "PRs",
+        "evidence",
+        "claims"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "writing-plans": {
+      "name": "writing-plans",
+      "path": "writing-plans/SKILL.md",
+      "fullDescription": "Use when you have a spec or requirements for a multi-step task, before touching code",
+      "triggers": [
+        "writing",
+        "plans",
+        "spec",
+        "requirements",
+        "multi-step",
+        "task"
+      ],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "writing-skills": {
+      "name": "writing-skills",
+      "path": "writing-skills/SKILL.md",
+      "fullDescription": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
+      "triggers": [
+        "writing",
+        "creating",
+        "skills",
+        "editing",
+        "verifying",
+        "deployment"
       ],
       "workflows": [],
       "tier": "deferred"

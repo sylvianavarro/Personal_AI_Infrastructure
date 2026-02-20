@@ -42,6 +42,8 @@ node_modules/
 *.swp
 *.swo
 *~
+# Un-ignore literal ~ directory (used in Bundles/Kai/~/.claude/)
+!~
 
 # Temporary files
 tmp/

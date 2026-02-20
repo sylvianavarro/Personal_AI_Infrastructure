@@ -1,6 +1,6 @@
 ---
-name: Kai Core Install
-pack-id: danielmiessler-kai-core-install-v1.0.0
+name: Core Install
+pack-id: danielmiessler-core-install-v1.0.0
 version: 1.0.0
 author: danielmiessler
 description: Complete PAI core installation - skill routing, identity system, and architecture tracking. The foundation pack that makes everything else work. Includes SKILL.md format, intent-based routing, personality calibration, and the 14 founding principles.
@@ -8,16 +8,16 @@ type: feature
 purpose-type: [productivity, automation, development]
 platform: claude-code
 dependencies:
-  - kai-hook-system (required) - Hooks enable session context loading and events
-  - kai-history-system (optional) - History capture for skill usage and learnings
+  - hook-system (required) - Hooks enable session context loading and events
+  - history-system (optional) - History capture for skill usage and learnings
 keywords: [core, identity, skills, routing, architecture, installation, foundation, personality, response-format, principles]
 ---
 
 <p align="center">
-  <img src="icons/kai-core-install.png" alt="Kai Core Install" width="256">
+  <img src="icons/kai-core-install.png" alt="Core Install" width="256">
 </p>
 
-# Kai Core Install (kai-core-install)
+# Core Install (core-install)
 
 > The complete foundation for Personal AI Infrastructure - skill routing, identity framework, and architecture tracking in one unified pack.
 
@@ -69,8 +69,8 @@ Please follow the installation instructions below to integrate this Pack into yo
 
 **Summary:**
 - **Files created:** 10+ (skill files, templates, tools)
-- **Hooks registered:** 0 (uses hook system from kai-hook-system)
-- **Dependencies:** kai-hook-system (required), kai-history-system (optional)
+- **Hooks registered:** 0 (uses hook system from hook-system)
+- **Dependencies:** hook-system (required), history-system (optional)
 
 ---
 
@@ -118,7 +118,7 @@ This sounds similar to system prompts or ChatGPT's Custom GPTs. What makes this 
 
 **System prompts** load everything upfront - all context, all instructions, all the time. Token budgets explode. Custom GPTs are static and monolithic.
 
-**Kai Core Install** provides:
+**Core Install** provides:
 - **Layered routing** with dynamic loading at each layer
 - **Constitutional framework** with mandatory response formats
 - **Numeric calibration** with precise personality settings
@@ -402,16 +402,16 @@ The `PaiArchitecture.ts` tool generates `$PAI_DIR/skills/CORE/Architecture.md` w
 
 | Pack | Version | Installed | Status |
 |------|---------|-----------|--------|
-| kai-hook-system | 1.0.0 | 2025-12-29 | Healthy |
-| kai-history-system | 1.0.0 | 2025-12-29 | Healthy |
-| kai-core-install | 1.0.0 | 2025-12-29 | Healthy |
-| kai-voice-system | 1.1.0 | 2025-12-29 | Healthy |
+| hook-system | 1.0.0 | 2025-12-29 | Healthy |
+| history-system | 1.0.0 | 2025-12-29 | Healthy |
+| core-install | 1.0.0 | 2025-12-29 | Healthy |
+| voice-system | 1.1.0 | 2025-12-29 | Healthy |
 
 ## Upgrade History
 
 | Date | Type | Description |
 |------|------|-------------|
-| 2025-12-29 | Pack | Initial kai-core-install installation |
+| 2025-12-29 | Pack | Initial core-install installation |
 | 2025-12-28 | Config | Updated personality calibration |
 
 ## System Health
@@ -430,7 +430,7 @@ The `PaiArchitecture.ts` tool generates `$PAI_DIR/skills/CORE/Architecture.md` w
 - **Bun runtime**: `curl -fsSL https://bun.sh/install | bash`
 - **Claude Code** (or compatible agent system)
 - **Write access** to `$PAI_DIR/` (or your PAI directory)
-- **kai-hook-system Pack** installed (required for session context loading)
+- **hook-system Pack** installed (required for session context loading)
 
 ---
 
@@ -448,7 +448,7 @@ echo "PAI_DIR: ${PAI_DIR:-'NOT SET - will use ~/.config/pai'}"
 if [ -f "$PAI_CHECK/hooks/lib/observability.ts" ]; then
   echo "✓ Hook system is installed (required)"
 else
-  echo "❌ Hook system NOT installed - install kai-hook-system first!"
+  echo "❌ Hook system NOT installed - install hook-system first!"
 fi
 
 # Check for history system (optional)
@@ -1117,7 +1117,7 @@ Your AI should speak as itself, not about itself in third person.
 
 **Contacts.md, CoreStack.md, CONSTITUTION.md, and Architecture.md templates:**
 
-See the full templates in the kai-identity pack documentation. The key files are:
+See the full templates in the identity pack documentation. The key files are:
 
 - `Contacts.md` - Contact directory (template with placeholder entries)
 - `CoreStack.md` - Technology preferences (TypeScript > Python, bun > npm)
@@ -1215,7 +1215,7 @@ bun run $PAI_DIR/Tools/PaiArchitecture.ts generate
 📋 SUMMARY: Updated PAI Architecture documentation
 ⚡ ACTIONS:
   - Regenerated Architecture.md
-  - Logged upgrade: "Installed kai-voice-system v1.0.0"
+  - Logged upgrade: "Installed voice-system v1.0.0"
   - Verified system health
 ✅ RESULTS: Architecture.md now shows 4 packs, 1 bundle
 📊 STATUS: All systems healthy
@@ -1284,7 +1284,7 @@ bun run $PAI_DIR/Tools/GenerateSkillIndex.ts
 
 ```bash
 bun run $PAI_DIR/Tools/PaiArchitecture.ts generate
-bun run $PAI_DIR/Tools/PaiArchitecture.ts log-upgrade "Initial kai-core-install installation"
+bun run $PAI_DIR/Tools/PaiArchitecture.ts log-upgrade "Initial core-install installation"
 ```
 
 ---
@@ -1458,9 +1458,9 @@ Create or edit `$PAI_DIR/skills/CORE/CoreStack.md`:
 
 ## Works Well With
 
-- **kai-hook-system** - Required; enables automatic CORE loading at session start
-- **kai-history-system** - Skills can reference past learnings and capture new ones
-- **kai-voice-system** - Skills can trigger voice notifications, response format drives voice output
+- **hook-system** - Required; enables automatic CORE loading at session start
+- **history-system** - Skills can reference past learnings and capture new ones
+- **voice-system** - Skills can trigger voice notifications, response format drives voice output
 
 ---
 
@@ -1470,11 +1470,11 @@ Create or edit `$PAI_DIR/skills/CORE/CoreStack.md`:
 *None - this is the foundation layer.*
 
 ### Child Of
-- **kai-hook-system** - Uses SessionStart hooks for automatic CORE skill loading
+- **hook-system** - Uses SessionStart hooks for automatic CORE skill loading
 
 ### Sibling Of
-- **kai-history-system** - Both are foundation packs that depend on kai-hook-system
-- **kai-voice-system** - Both consume hook infrastructure
+- **history-system** - Both are foundation packs that depend on hook-system
+- **voice-system** - Both consume hook infrastructure
 
 ### Part Of Collection
 **Kai Core Bundle** - This is the primary foundation pack that all others build upon.
@@ -1485,7 +1485,7 @@ Create or edit `$PAI_DIR/skills/CORE/CoreStack.md`:
 
 ### v1.0.0 (2025-12-29)
 - Initial release
-- Merged kai-skill-system and kai-identity into unified pack
+- Merged skill-system and identity into unified pack
 - Added PAI Architecture tracking system
 - Added PaiArchitecture.ts tool
 - Simplified installation to single pack

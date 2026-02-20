@@ -65,9 +65,9 @@ Each agent gets:
 
 ```typescript
 // In Claude Code / AI environment
-Task("Fix agent-tool-abort.test.ts failures")
-Task("Fix batch-completion-behavior.test.ts failures")
-Task("Fix tool-approval-race-conditions.test.ts failures")
+Task("Fix agent-tool-abort.test.ts failures", model: "sonnet")
+Task("Fix batch-completion-behavior.test.ts failures", model: "sonnet")
+Task("Find all files importing deprecated batchTools API", model: "haiku")
 // All three run concurrently
 ```
 
@@ -78,6 +78,39 @@ When agents return:
 - Verify fixes don't conflict
 - Run full test suite
 - Integrate all changes
+
+## Model Tiering
+
+Choose the right model per agent to balance cost, latency, and quality.
+
+| Tier | Model | Use For | Example |
+|------|-------|---------|---------|
+| High | `opus` | Complex reasoning, architecture, multi-file refactors | "Redesign the auth middleware" |
+| Mid | `sonnet` | Standard implementation, debugging, test fixes | "Fix 3 failing tests in auth.test.ts" |
+| Low | `haiku` | Lookups, formatting, simple grep-and-fix | "Find all usages of deprecated API" |
+
+**Default rule:** Sonnet unless you have a reason to go higher or lower. Most parallel dispatch tasks are mid-tier.
+
+**Cost note:** 3 Haiku agents cost less than 1 Opus agent. Tier down aggressively — upgrade only when an agent fails or produces shallow results.
+
+**Anti-pattern:** Don't use Opus for all agents "just in case." The parallelism benefit gets erased if every agent is slow and expensive. Start low, promote on failure.
+
+### Tiering in Practice
+
+When dispatching, assign models based on task complexity:
+
+```typescript
+// Complex debugging with architectural implications → opus
+Task("Redesign auth middleware to support SSO", model: "opus")
+
+// Standard fix work → sonnet (default)
+Task("Fix 3 failing tests in auth.test.ts", model: "sonnet")
+
+// Simple lookup / grep tasks → haiku
+Task("Find all files importing deprecated batchTools API", model: "haiku")
+```
+
+If a haiku agent returns shallow or incorrect results, re-dispatch that specific task with sonnet. Don't pre-emptively over-tier.
 
 ## Agent Prompt Structure
 

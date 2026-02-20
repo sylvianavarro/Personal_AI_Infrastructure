@@ -13,11 +13,11 @@ MANDATORY skill creation framework for ALL skill creation requests.
 
 ## Workflow Routing
 
-| Workflow | Trigger | File |
-|----------|---------|------|
-| **CreateSkill** | "create a new skill" | `Workflows/CreateSkill.md` |
-| **ValidateSkill** | "validate skill" | `Workflows/ValidateSkill.md` |
-| **CanonicalizeSkill** | "canonicalize", "fix skill" | `Workflows/CanonicalizeSkill.md` |
+| Workflow | Trigger |
+|----------|---------|
+| **CreateSkill** | "create a new skill" |
+| **ValidateSkill** | "validate skill" |
+| **CanonicalizeSkill** | "canonicalize", "fix skill" |
 
 ## Examples
 

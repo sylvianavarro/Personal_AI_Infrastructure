@@ -1,6 +1,6 @@
 ---
-name: Kai Voice System
-pack-id: danielmiessler-kai-voice-system-core-v1.1.0
+name: Voice System
+pack-id: danielmiessler-voice-system-core-v1.1.0
 version: 1.1.0
 author: danielmiessler
 description: Voice notification system with ElevenLabs TTS, prosody enhancement for natural speech, and agent personality-driven voice delivery
@@ -8,16 +8,16 @@ type: feature
 purpose-type: [notifications, accessibility, automation]
 platform: claude-code
 dependencies:
-  - kai-hook-system (required) - Hooks trigger voice notifications
-  - kai-core-install (required) - Skills, identity, and response format drive voice output
+  - hook-system (required) - Hooks trigger voice notifications
+  - core-install (required) - Skills, identity, and response format drive voice output
 keywords: [voice, tts, elevenlabs, notifications, prosody, speech, agents, personalities, accessibility]
 ---
 
 <p align="center">
-  <img src="icons/kai-voice-system-v2.png" alt="Kai Voice System" width="256">
+  <img src="icons/kai-voice-system-v2.png" alt="Voice System" width="256">
 </p>
 
-# Kai Voice System (kai-voice-system)
+# Voice System (voice-system)
 
 > Voice notification system with natural speech synthesis and personality-driven delivery
 
@@ -29,7 +29,7 @@ You are receiving a PAI Pack - a modular upgrade for AI agent systems.
 
 **What is a Pack?** See: [Pack System](../README.md#pack-system)
 
-This Pack adds voice notifications to your AI infrastructure. The Kai Voice System provides:
+This Pack adds voice notifications to your AI infrastructure. The Voice System provides:
 
 - **Spoken Notifications**: Hear task completions via ElevenLabs text-to-speech
 - **Prosody Enhancement**: Natural speech patterns with emotional markers
@@ -61,7 +61,7 @@ Please follow the installation instructions below to integrate this Pack into yo
 **Summary:**
 - **Files created:** 6
 - **Hooks registered:** 2 (Stop, SubagentStop)
-- **Dependencies:** kai-hook-system (required), kai-core-install (required), ElevenLabs API key
+- **Dependencies:** hook-system (required), core-install (required), ElevenLabs API key
 
 ---
 
@@ -102,7 +102,7 @@ Simple text-to-speech sounds robotic. Real voice needs:
 
 ## The Solution
 
-The Kai Voice System provides natural-sounding voice output:
+The Voice System provides natural-sounding voice output:
 
 **Core Architecture:**
 
@@ -154,7 +154,7 @@ $PAI_DIR/
 
 This sounds similar to basic text-to-speech tools like macOS's say command, which also read text aloud. What makes this approach different?
 
-Basic TTS reads everything literally—code blocks, markdown syntax, technical artifacts. The Kai Voice System applies prosody enhancement before speech: bold text gets emphasis, ellipses create pauses, emotional markers adjust tone. It intelligently summarizes code blocks instead of reading them verbatim. Different agent personalities use different voices. The result is natural speech that sounds like a colleague reporting, not a screen reader monotonously parsing text.
+Basic TTS reads everything literally—code blocks, markdown syntax, technical artifacts. The Voice System applies prosody enhancement before speech: bold text gets emphasis, ellipses create pauses, emotional markers adjust tone. It intelligently summarizes code blocks instead of reading them verbatim. Different agent personalities use different voices. The result is natural speech that sounds like a colleague reporting, not a screen reader monotonously parsing text.
 
 - Prosody enhancement adds natural pauses and emphasis automatically
 - Code blocks summarized instead of read character by character
@@ -165,7 +165,7 @@ Basic TTS reads everything literally—code blocks, markdown syntax, technical a
 
 ## What Makes This Different
 
-The Kai Voice System uses a **5-layer prosody enhancement pipeline** that transforms raw AI text into natural speech with emotional intelligence and personality-driven delivery:
+The Voice System uses a **5-layer prosody enhancement pipeline** that transforms raw AI text into natural speech with emotional intelligence and personality-driven delivery:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -343,8 +343,8 @@ The difference: Basic TTS treats AI output as text to read. The voice system tre
 - **macOS**: This pack uses `afplay` for audio playback (macOS built-in). Linux users need to modify the audio playback section.
 - **ElevenLabs account**: Sign up at [elevenlabs.io](https://elevenlabs.io) - see Step 8 for detailed setup
 - **Required PAI Packs** (install these first):
-  - `kai-hook-system` - Foundation hook infrastructure
-  - `kai-core-install` - Skills, identity, and response format
+  - `hook-system` - Foundation hook infrastructure
+  - `core-install` - Skills, identity, and response format
 
 ---
 
@@ -361,16 +361,16 @@ echo "=== Checking Required Dependencies ==="
 
 # Check hook system (REQUIRED)
 if [ -f "$PAI_CHECK/hooks/lib/observability.ts" ]; then
-  echo "✓ kai-hook-system is installed"
+  echo "✓ hook-system is installed"
 else
-  echo "❌ kai-hook-system NOT installed - REQUIRED! Install it first."
+  echo "❌ hook-system NOT installed - REQUIRED! Install it first."
 fi
 
 # Check core install (REQUIRED - includes skills and identity)
 if [ -d "$PAI_CHECK/skills" ] && [ -f "$PAI_CHECK/skills/CORE/SKILL.md" ]; then
-  echo "✓ kai-core-install is installed (skills + CORE skill)"
+  echo "✓ core-install is installed (skills + CORE skill)"
 else
-  echo "❌ kai-core-install NOT installed - REQUIRED! Install it first."
+  echo "❌ core-install NOT installed - REQUIRED! Install it first."
 fi
 
 # Check for ElevenLabs API key in $PAI_DIR/.env
@@ -2755,14 +2755,14 @@ If the voice server is offline:
 
 ## Works Well With
 
-- **kai-hook-system** - Required; Stop hooks trigger voice notifications
-- **kai-core-install** - Required; Skills, identity, and response format drive voice output
-- **kai-history-system** - History capture can trigger voice announcements
+- **hook-system** - Required; Stop hooks trigger voice notifications
+- **core-install** - Required; Skills, identity, and response format drive voice output
+- **history-system** - History capture can trigger voice announcements
 
 ## Recommended
 
-- **kai-hook-system** - Required; provides the event triggers for voice output
-- **kai-core-install** - Required; defines skills, agent personalities, and response format
+- **hook-system** - Required; provides the event triggers for voice output
+- **core-install** - Required; defines skills, agent personalities, and response format
 
 ## Relationships
 
@@ -2770,11 +2770,11 @@ If the voice server is offline:
 *None - this is an output layer, not a foundation for other packs.*
 
 ### Child Of
-- **kai-hook-system** - Uses Stop and SubagentStop hooks for voice triggers
-- **kai-core-install** - Agent personalities from CORE skill map to voice configurations
+- **hook-system** - Uses Stop and SubagentStop hooks for voice triggers
+- **core-install** - Agent personalities from CORE skill map to voice configurations
 
 ### Sibling Of
-- **kai-history-system** - Both consume hook events for their functionality
+- **history-system** - Both consume hook events for their functionality
 
 ### Part Of Collection
 **Kai Core Bundle** - One of 4 foundational packs that together create the complete Kai personal AI infrastructure.
@@ -2785,7 +2785,7 @@ If the voice server is offline:
 
 ### 1.1.0 - 2025-12-29 (Updated 2025-12-30)
 - **END-TO-END COMPLETE RELEASE**
-- Updated pack icon with new Kai Voice System design (cache-busted filename)
+- Updated pack icon with new Voice System design (cache-busted filename)
 - Added complete voice server implementation (server.ts)
 - Added server management scripts (install.sh, start.sh, stop.sh, restart.sh, status.sh)
 - Added macOS LaunchAgent auto-start configuration
@@ -2793,7 +2793,7 @@ If the voice server is offline:
 - Added comprehensive verification sequence (Steps 12.1-12.8)
 - Added full troubleshooting section with common issues and fixes
 - Added quick reference section with file locations
-- Updated dependencies to include kai-core-install (replaces kai-skill-system + kai-identity)
+- Updated dependencies to include core-install (replaces skill-system + identity)
 - Pack now meets PAI End-to-End Completeness Requirements
 
 ### 1.0.0 - 2025-12-29

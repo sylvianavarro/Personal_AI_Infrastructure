@@ -86,6 +86,9 @@ For example, the Art Skill pack recommends having an extended conversation with 
 | [**kai-art-skill**](kai-art-skill.md) | 1.0.0 | Creativity | [Kai](../Bundles/Kai/) | Visual content generation with Excalidraw hand-drawn aesthetic - diagrams, comics, illustrations |
 | [**kai-agents-skill**](kai-agents-skill.md) | 1.0.0 | Delegation | [Kai](../Bundles/Kai/) | Dynamic agent composition - create custom agents with unique personalities, voices, and trait combinations |
 | [**kai-prompting-skill**](kai-prompting-skill.md) | 1.0.0 | Methodology | [Kai](../Bundles/Kai/) | Meta-prompting system with Handlebars templates, Claude 4.x best practices, and the Ultimate Prompt Template |
+| [**kai-pm-skills**](kai-pm-skills.md) | 1.0.0 | Productivity | Community | Nine PM workflow skills — PRDs, user stories, acceptance criteria, estimation, prioritization, sprint planning, status reports, RAID logs, and decision records |
+| [**kai-engineering-skills**](kai-engineering-skills.md) | 1.0.0 | Development | Community | Eight engineering workflow skills — smart commits, session catchup, knowledge accumulation, test suite repair, test patterns, API testing, React performance, and UI review |
+| [**kai-asset-management**](kai-asset-management.md) | 1.0.0 | Creativity | Community | Manifest-driven brand asset management with constraint enforcement — colors, typography, icons, logos, and images |
 
 ---
 

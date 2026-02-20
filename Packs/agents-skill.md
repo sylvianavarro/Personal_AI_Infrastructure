@@ -1,5 +1,5 @@
 ---
-name: Kai Agents Skill
+name: Agents Skill
 pack-id: danielmiessler-agents-skill-core-v1.1.0
 version: 1.1.0
 author: danielmiessler
@@ -12,10 +12,10 @@ keywords: [agents, delegation, parallel, traits, personalities, voice, compositi
 ---
 
 <p align="center">
-  <img src="icons/agents-skill.png" alt="Kai Agents Skill" width="256">
+  <img src="icons/agents-skill.png" alt="Agents Skill" width="256">
 </p>
 
-# Kai Agents Skill
+# Agents Skill
 
 > Dynamic agent composition system - create specialized agents with unique personalities and voices, composed from traits on-the-fly
 
@@ -54,7 +54,7 @@ Please follow the installation instructions below to integrate this pack into yo
 **Summary:**
 - **Files created:** 8+ (skill, tool, workflows, data)
 - **Hooks registered:** 0 (skill-based, not hook-based)
-- **Dependencies:** kai-core-install (required), kai-voice-system (optional for voice)
+- **Dependencies:** core-install (required), voice-system (optional for voice)
 
 ---
 
@@ -167,8 +167,8 @@ Traditional role-playing ("You are a security expert...") is ad-hoc prompt engin
 
 - **Bun runtime**: `curl -fsSL https://bun.sh/install | bash`
 - **Claude Code** (or compatible agent system)
-- **kai-core-install** pack installed (provides skill routing)
-- **Optional**: kai-voice-system pack for voice notifications
+- **core-install** pack installed (provides skill routing)
+- **Optional**: voice-system pack for voice notifications
 
 ---
 
@@ -189,9 +189,9 @@ fi
 
 # 3. Check dependencies
 if [ -f "$PAI_CHECK/skills/CORE/SKILL.md" ]; then
-  echo "kai-core-install: INSTALLED"
+  echo "core-install: INSTALLED"
 else
-  echo "Warning: kai-core-install not found (required)"
+  echo "Warning: core-install not found (required)"
 fi
 ```
 
@@ -1750,7 +1750,7 @@ export PAI_DIR="$HOME/.config/pai"
 
 **Voice Integration:**
 
-If using kai-voice-system pack, agents automatically include voice IDs in their
+If using voice-system pack, agents automatically include voice IDs in their
 prompts. Edit `Traits.yaml` to map trait combinations to your TTS provider's voice IDs.
 
 ---
@@ -1795,25 +1795,25 @@ prompts. Edit `Traits.yaml` to map trait combinations to your TTS provider's voi
 
 ## Related Work
 
-- [kai-voice-system](kai-voice-system.md) - Voice notifications for agent outputs
-- [kai-core-install](kai-core-install.md) - Core skill routing (required dependency)
+- [voice-system](voice-system.md) - Voice notifications for agent outputs
+- [core-install](core-install.md) - Core skill routing (required dependency)
 
 ---
 
 ## Works Well With
 
-- **kai-voice-system** - Agents automatically use voice IDs for TTS notifications
-- **kai-observability-server** - Track agent spawning and outputs in real-time
+- **voice-system** - Agents automatically use voice IDs for TTS notifications
+- **observability-server** - Track agent spawning and outputs in real-time
 
 ---
 
 ## Relationships
 
 ### Child Of
-- kai-core-install (provides skill routing infrastructure)
+- core-install (provides skill routing infrastructure)
 
 ### Sibling Of
-- kai-voice-system (voice output integration)
+- voice-system (voice output integration)
 
 ### Part Of Collection
 - Kai Bundle

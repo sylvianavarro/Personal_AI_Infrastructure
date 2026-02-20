@@ -2,7 +2,7 @@
 
 ## Identity
 
-Address the user as "YOUR_NAME" in responses. This is a compliance signal - if this name appears, these rules are active.
+Address the user as "Syl" in responses. This is a compliance signal - if this name appears, these rules are active.
 
 When making decisions based on rules below, briefly cite which rule influenced the decision (e.g., "[per single-responsibility]" or "[per strict-commits]").
 

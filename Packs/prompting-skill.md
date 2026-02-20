@@ -1,6 +1,6 @@
 ---
-name: Kai Prompting Skill
-pack-id: danielmiessler-kai-prompting-skill-v1.0.0
+name: Prompting Skill
+pack-id: danielmiessler-prompting-skill-v1.0.0
 version: 1.0.0
 author: danielmiessler
 description: Meta-prompting system for dynamic prompt generation using Handlebars templates, Claude 4.x best practices, and the Fabric pattern system. Includes the Ultimate Prompt Template, five core primitives (Roster, Voice, Structure, Briefing, Gate), and CLI tools for rendering and validation.
@@ -8,16 +8,16 @@ type: feature
 purpose-type: [productivity, development, automation]
 platform: claude-code
 dependencies:
-  - kai-core-install (required) - Skills directory structure and routing
-  - kai-hook-system (optional) - For session startup context loading
+  - core-install (required) - Skills directory structure and routing
+  - hook-system (optional) - For session startup context loading
 keywords: [prompting, templates, handlebars, meta-prompting, prompt-engineering, fabric, claude-4, context-engineering, templating]
 ---
 
 <p align="center">
-  <img src="icons/kai-prompting-skill.png" alt="Kai Prompting Skill" width="256">
+  <img src="icons/kai-prompting-skill.png" alt="Prompting Skill" width="256">
 </p>
 
-# Kai Prompting Skill (kai-prompting-skill)
+# Prompting Skill (prompting-skill)
 
 > Prompts that write prompts. Meta-prompting enables dynamic composition where structure is fixed but content is parameterized.
 
@@ -66,7 +66,7 @@ Please follow the installation instructions below to integrate this Pack into yo
 **Summary:**
 - **Files created:** 12+ (skill, standards, templates, tools)
 - **Hooks registered:** 0 (skill-based, not hook-based)
-- **Dependencies:** kai-core-install (required)
+- **Dependencies:** core-install (required)
 
 ---
 
@@ -548,7 +548,7 @@ gate:
 
 - **Bun runtime**: `curl -fsSL https://bun.sh/install | bash`
 - **Claude Code** (or compatible agent system)
-- **kai-core-install Pack** installed (required for Skills directory)
+- **core-install Pack** installed (required for Skills directory)
 
 ---
 
@@ -1716,7 +1716,7 @@ bun add handlebars yaml
 
 ---
 
-## Step 9: Generate Skill Index (If Using kai-core-install)
+## Step 9: Generate Skill Index (If Using core-install)
 
 ```bash
 bun run $PAI_DIR/Tools/GenerateSkillIndex.ts
@@ -1727,7 +1727,7 @@ bun run $PAI_DIR/Tools/GenerateSkillIndex.ts
 ## Step 10: Update Architecture
 
 ```bash
-bun run $PAI_DIR/Tools/PaiArchitecture.ts log-upgrade "Installed kai-prompting-skill v1.0.0" pack
+bun run $PAI_DIR/Tools/PaiArchitecture.ts log-upgrade "Installed prompting-skill v1.0.0" pack
 bun run $PAI_DIR/Tools/PaiArchitecture.ts generate
 ```
 
@@ -1962,9 +1962,9 @@ If a helper isn't working:
 
 ## Works Well With
 
-- **kai-core-install** - Required; provides Skills directory and routing
-- **kai-hook-system** - Optional; enables session startup loading
-- **kai-voice-system** - Templates can generate voice configurations
+- **core-install** - Required; provides Skills directory and routing
+- **hook-system** - Optional; enables session startup loading
+- **voice-system** - Templates can generate voice configurations
 
 ## Parent Of
 
@@ -1973,7 +1973,7 @@ If a helper isn't working:
 
 ## Child Of
 
-- **kai-core-install** - Uses Skills directory structure
+- **core-install** - Uses Skills directory structure
 
 ## Sibling Of
 

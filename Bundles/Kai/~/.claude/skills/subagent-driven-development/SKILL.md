@@ -100,7 +100,7 @@ You: I'm using Subagent-Driven Development to execute this plan.
 Task 1: Hook installation script
 
 [Get Task 1 text and context (already extracted)]
-[Dispatch implementation subagent with full task text + context]
+[Dispatch implementation subagent with full task text + context (model: sonnet)]
 
 Implementer: "Before I begin - should the hook be installed at user or system level?"
 
@@ -113,10 +113,10 @@ Implementer: "Got it. Implementing now..."
   - Self-review: Found I missed --force flag, added it
   - Committed
 
-[Dispatch spec compliance reviewer]
+[Dispatch spec compliance reviewer (model: sonnet)]
 Spec reviewer: ✅ Spec compliant - all requirements met, nothing extra
 
-[Get git SHAs, dispatch code quality reviewer]
+[Get git SHAs, dispatch code quality reviewer (model: sonnet)]
 Code reviewer: Strengths: Good test coverage, clean. Issues: None. Approved.
 
 [Mark Task 1 complete]
@@ -124,7 +124,7 @@ Code reviewer: Strengths: Good test coverage, clean. Issues: None. Approved.
 Task 2: Recovery modes
 
 [Get Task 2 text and context (already extracted)]
-[Dispatch implementation subagent with full task text + context]
+[Dispatch implementation subagent with full task text + context (model: sonnet)]
 
 Implementer: [No questions, proceeds]
 Implementer:
@@ -133,7 +133,7 @@ Implementer:
   - Self-review: All good
   - Committed
 
-[Dispatch spec compliance reviewer]
+[Dispatch spec compliance reviewer (model: sonnet)]
 Spec reviewer: ❌ Issues:
   - Missing: Progress reporting (spec says "report every 100 items")
   - Extra: Added --json flag (not requested)
@@ -144,7 +144,7 @@ Implementer: Removed --json flag, added progress reporting
 [Spec reviewer reviews again]
 Spec reviewer: ✅ Spec compliant now
 
-[Dispatch code quality reviewer]
+[Dispatch code quality reviewer (model: sonnet)]
 Code reviewer: Strengths: Solid. Issues (Important): Magic number (100)
 
 [Implementer fixes]
@@ -158,7 +158,7 @@ Code reviewer: ✅ Approved
 ...
 
 [After all tasks]
-[Dispatch final code-reviewer]
+[Dispatch final code-reviewer (model: sonnet)]
 Final reviewer: All requirements met, ready to merge
 
 Done!
