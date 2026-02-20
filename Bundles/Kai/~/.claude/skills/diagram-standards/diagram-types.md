@@ -143,3 +143,80 @@ Parent skill: `SKILL.md` in this directory.
 - Trend up: success color. Trend down: warning or error color.
 - Charts: accent color for primary series, accent-light for secondary
 - Tables: muted header row, alternating subtle backgrounds
+
+---
+
+## Roadmap Diagram
+
+**Purpose:** Phased delivery plans, timelines, milestones for strategic communication.
+**Best for:** Board updates, client delivery timelines, release planning.
+**Typical size:** 1200 x 600
+
+**Structures:**
+
+| Format | When to Use |
+|--------|------------|
+| Timeline (horizontal) | Fixed dates, quarterly cadence |
+| Swimlane | Multiple workstreams in parallel |
+| Now / Next / Later | Uncertain dates, priority-based |
+| Milestone | Key deliverables, exec audiences |
+
+**Structure (Timeline):**
+```
+Phase 1 (Q1)         Phase 2 (Q2)         Phase 3 (Q3)
+|=================|  |=================|  |=================|
+| [Milestone A]   |  | [Milestone C]   |  | [Milestone E]   |
+| [Milestone B]   |  | [Milestone D]   |  |                 |
+|=================|  |=================|  |=================|
+```
+
+**Key conventions:**
+- Phase blocks: accent-light fill, accent border
+- Current phase: accent fill (full), white text
+- Future phases: region fill, secondary border
+- Milestones: circles on timeline — filled = complete, outline = upcoming
+- Dependency arrows between milestones: dashed, accent-dark
+- Keep text high-level — outcomes, not tasks
+
+---
+
+## 2x2 Matrix Diagram
+
+**Purpose:** Strategic positioning, prioritization frameworks, tradeoff visualization.
+**Best for:** Exec strategy sessions, prioritization decisions, competitive positioning.
+**Typical size:** 900 x 900
+
+**Common matrices:**
+
+| Matrix | X-Axis | Y-Axis |
+|--------|--------|--------|
+| Eisenhower | Urgency | Importance |
+| Risk | Likelihood | Impact |
+| Effort/Impact | Effort | Impact |
+| BCG | Market share | Growth rate |
+
+**Structure:**
+```
+              High [Y-Axis Label]
+                |
+   [Quadrant 2] | [Quadrant 1]
+   "Label"      | "Label"
+                |
+  --------------|----------------
+                |
+   [Quadrant 3] | [Quadrant 4]
+   "Label"      | "Label"
+                |
+              Low
+   Low          |          High
+           [X-Axis Label]
+```
+
+**Key conventions:**
+- Quadrant fills: distinct but low-contrast (accent-light, success-light, warning-light, error-light at 10% opacity)
+- Axis labels: primary text, 14px, bold, centered on axis
+- Quadrant labels: secondary text, 12px, top-left of each quadrant
+- Items positioned as circles or rounded rects within quadrants
+- Item size can encode a third dimension (e.g., revenue, team size)
+- Top-right quadrant (high/high) typically highlighted with accent border
+- Keep to 3-7 items per quadrant — more becomes unreadable

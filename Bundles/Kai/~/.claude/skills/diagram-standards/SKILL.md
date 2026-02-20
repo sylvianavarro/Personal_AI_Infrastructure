@@ -78,7 +78,7 @@ Colors come from the brand manifest. Map manifest keys to diagram roles:
 
 See `diagram-types.md` in this directory for type-specific structure examples and conventions.
 
-Five supported types:
+Seven supported types:
 
 | Type | Purpose | Typical Size |
 |------|---------|-------------|
@@ -87,6 +87,22 @@ Five supported types:
 | Data Flow | Data movement, event flows, message queues | 1100 x 700 |
 | Sequence | System interactions over time, API flows | 1000 x 700 |
 | Dashboard / Wireframe | Layouts, widget structures, UI specs | 1100 x 800 |
+| Roadmap | Timeline, milestones, phased delivery plans | 1200 x 600 |
+| 2x2 Matrix | Strategic positioning, prioritization, tradeoffs | 900 x 900 |
+
+### Audience Routing
+
+Different stakeholders need different diagrams. Match diagram type to audience:
+
+| Audience | Primary Diagram | Focus | Detail Level |
+|----------|----------------|-------|-------------|
+| CTO / Engineering | Architecture, Sequence | Technical components, APIs, data flow | High — service names, protocols, data stores |
+| CEO / Exec team | 2x2 Matrix, Roadmap | Strategic positioning, priorities, tradeoffs | Low — categories, not components |
+| Board / Investors | Roadmap, Flow/Process | Milestones, timelines, business outcomes | Minimal — phases, dates, impact |
+| Product / Design | Flow/Process, Dashboard | User journeys, UI layouts, interaction flows | Medium — screens, steps, decisions |
+| External clients | Architecture (simplified), Roadmap | Capabilities, delivery timeline | Low — value delivered, not internals |
+
+**Rule:** If unsure, default to less detail. You can always drill down; you can't un-confuse someone.
 
 ---
 

@@ -112,11 +112,17 @@ ls docs/decisions/*.md 2>/dev/null | wc -l
 | Alternatives | What else was considered? Why not? |
 | Consequences | What changes because of this? |
 
-### Step 4: Review and Approve
+### Step 4: Challenge and Approve
 
+**Perspective check — stress-test before finalizing:**
+- **Devil's advocate:** What's the strongest case for a rejected alternative?
+- **Operator:** How does this affect deploy, monitoring, rollback, incident response?
+- **Future self:** What would make us regret this choice in 12 months?
+
+**Then verify:**
 - [ ] Context accurately describes the situation
 - [ ] Decision is clear and actionable
-- [ ] Alternatives were genuinely considered
+- [ ] Alternatives were genuinely considered (not strawmen)
 - [ ] Consequences are honest (including negatives)
 - [ ] Stakeholders have reviewed
 

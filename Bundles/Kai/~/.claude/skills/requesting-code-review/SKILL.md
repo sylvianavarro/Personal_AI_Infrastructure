@@ -21,6 +21,17 @@ Dispatch superpowers:code-reviewer subagent to catch issues before they cascade.
 - Before refactoring (baseline check)
 - After fixing complex bug
 
+## Self-Review First
+
+Before dispatching the reviewer, challenge your own work:
+- **Reviewer:** What would I flag if I didn't write this?
+- **Security:** Any input validation gaps, auth issues, data exposure?
+- **New team member:** Could someone unfamiliar follow this without asking me?
+
+Fix anything you catch — don't waste reviewer cycles on things you could have caught yourself.
+
+---
+
 ## How to Request
 
 **1. Get git SHAs:**

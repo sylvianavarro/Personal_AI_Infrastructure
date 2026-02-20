@@ -1,11 +1,11 @@
 ---
 name: status
-description: Generate project status reports. Use when preparing for standups, stakeholder updates, or documenting current project state.
+description: Generate project status reports. Use when preparing for standups, stakeholder updates, documenting current project state, or communicating progress to different audiences.
 ---
 
 # Status Report
 
-Generate comprehensive project status reports.
+Generate status reports tailored to your audience. Same information, different format.
 
 ## When to Use
 
@@ -14,105 +14,49 @@ Generate comprehensive project status reports.
 - End-of-day progress summary
 - Handoff to another developer
 - Sprint progress check
+- Executive briefings
+- Release announcements
+- Client communications
 
 ---
 
-## Quick Status (30 seconds)
+## Communication Matrix
 
-```bash
-git log --oneline --since="yesterday" --author="$(git config user.name)" && \
-git status --short && \
-echo "--- Active branches ---" && \
-git branch --list | head -5
-```
+| Audience | Format | Lead With | Tone |
+|----------|--------|-----------|------|
+| Engineering | Slack / standup | What changed | Casual, technical |
+| Stakeholders | Email / doc | Business outcomes | Professional, strategic |
+| Customers | Release notes | Value delivered | Friendly, benefit-focused |
+| Executives | Brief / deck | Impact + next steps | Concise, metric-driven |
+| Documentation | Notion / wiki | Complete reference | Comprehensive, structured |
+
+**Audience detection** — infer from context cues:
+- "post in Slack" / "tell the team" → Engineering format
+- "email the client" / "update stakeholders" → Stakeholder format
+- "changelog" / "release notes" → Customer format
+- "brief the exec" / "board update" → Executive format
 
 ---
 
-## Full Status Report
-
-### Step 1: Gather Data
+## Gather Data
 
 ```bash
-# Recent commits (your work)
+# Recent commits
 git log --oneline --since="1 week ago" --author="$(git config user.name)"
 
-# Current branch state
-git status
+# Current state
+git status --short && git stash list
 
 # Open branches
 git branch -a --no-merged main
 
-# Recent changes (files modified)
-git diff HEAD~10 --stat
-
-# Stashed work
-git stash list
-```
-
-### Step 2: Check Project State
-
-```bash
-# Test status (if applicable)
+# Test/build status (if applicable)
 npm test 2>&1 | tail -5
-# or
-pytest --tb=no -q 2>&1 | tail -5
-
-# Build status
-npm run build 2>&1 | tail -3
-# or
-python -m py_compile src/**/*.py 2>&1
-```
-
-### Step 3: Review Knowledge Base
-
-```bash
-# Recent decisions
-tail -20 ~/.claude/knowledge/decisions.md
-
-# Any blockers documented
-grep -i "blocker\|blocked" docs/*.md 2>/dev/null
 ```
 
 ---
 
-## Status Report Template
-
-```markdown
-# Status Report: [Date]
-
-## Summary
-[1-2 sentence overview of current state]
-
-## Completed Since Last Update
-- [x] [Task/feature completed]
-- [x] [Task/feature completed]
-
-## In Progress
-| Task | Status | ETA | Blockers |
-|------|--------|-----|----------|
-| [Task] | [X]% | [date] | [none/description] |
-
-## Blockers
-- [ ] [Blocker description] — Waiting on: [who/what]
-
-## Next Steps
-1. [Next priority task]
-2. [Following task]
-
-## Risks / Concerns
-- [Any emerging risks or concerns]
-
-## Metrics (if applicable)
-| Metric | Current | Target |
-|--------|---------|--------|
-| Test coverage | X% | Y% |
-| Open bugs | X | Y |
-| Sprint velocity | X | Y |
-```
-
----
-
-## Status Report Formats
+## Internal Formats
 
 ### Daily Standup
 
@@ -146,113 +90,167 @@ grep -i "blocker\|blocked" docs/*.md 2>/dev/null
 2. [Priority 2]
 ```
 
-### Stakeholder Update
+### Full Status Report
 
 ```markdown
-## Project Update: [Date]
+# Status Report: [Date]
 
-### Executive Summary
-[2-3 sentences for non-technical audience]
+## Summary
+[1-2 sentence overview]
 
-### Progress Against Milestones
-| Milestone | Due | Status | Notes |
-|-----------|-----|--------|-------|
-| [Milestone] | [date] | On Track/At Risk/Delayed | [context] |
+## Completed Since Last Update
+- [x] [Task/feature completed]
 
-### Key Decisions Made
-- [Decision 1]: [Impact]
+## In Progress
+| Task | Status | ETA | Blockers |
+|------|--------|-----|----------|
+| [Task] | [X]% | [date] | [none/description] |
 
-### Upcoming Risks
-| Risk | Likelihood | Impact | Mitigation |
-|------|------------|--------|------------|
-| [Risk] | High/Med/Low | High/Med/Low | [Plan] |
+## Blockers
+- [ ] [Blocker] — Waiting on: [who/what]
 
-### Resource Needs
-- [Any additional resources needed]
+## Next Steps
+1. [Next priority task]
+
+## Risks / Concerns
+- [Any emerging risks]
 ```
 
 ---
 
-## Automated Status Generation
+## External Formats
 
-```bash
-#!/bin/bash
-# Generate status report from git history
+### Executive Briefing (Update)
 
-echo "# Status Report: $(date +%Y-%m-%d)"
-echo ""
-echo "## Completed Today"
-git log --oneline --since="midnight" --author="$(git config user.name)" | sed 's/^/- /'
-echo ""
-echo "## Files Changed"
-git diff HEAD~5 --stat | tail -10
-echo ""
-echo "## Current State"
-git status --short
-echo ""
-echo "## Open Branches"
-git branch --list | grep -v "^\*" | head -5 | sed 's/^/- /'
+Maximum 3 paragraphs. No jargon, active voice, metric-driven. Use when **informing**.
+
+```markdown
+**What happened:** [Outcomes with metrics — shipped X, reduced Y by Z%]
+
+**Why it matters:** [Business impact — revenue, efficiency, risk reduction]
+
+**What's next:** [Next milestone, timeline, decisions needed]
 ```
+
+### Executive Proposal (Request)
+
+Use when **asking for something** — approval, budget, headcount, direction change.
+
+```markdown
+1. **Executive Summary** — 3 bullets max: what, why, impact
+2. **Business Impact** — Metrics, outcomes, projected value
+3. **Strategic Context** — How this connects to company goals/OKRs
+4. **Risks & Mitigation** — What could go wrong, how we'd handle it
+5. **Resource Requirements** — What we need, why it's justified
+6. **Decision Needed** — What you're asking for, by when
+7. **Next Steps** — What happens after approval
+```
+
+**Pre-answer these questions** (execs will always ask them):
+- Why now? (urgency/timing)
+- What's the ROI? (cost vs value)
+- What happens if we don't? (cost of inaction)
+- What are the risks? (downside + mitigation)
+- Who else is affected? (cross-functional impact)
+
+### Stakeholder Email
+
+Professional, context-rich. Business outcomes first, technical details optional.
+
+```markdown
+Subject: [Project] Update — [Date]
+
+Hi [Name],
+
+**Progress:** [2-3 sentences on what was delivered and business impact]
+
+**Milestones:**
+| Milestone | Status | Notes |
+|-----------|--------|-------|
+| [Milestone] | On Track / At Risk | [context] |
+
+**Decisions needed:** [Any blockers requiring stakeholder input]
+
+**Next steps:** [What happens next, when to expect the next update]
+```
+
+### Release Notes
+
+Customer-facing, benefit-focused. No implementation details.
+
+```markdown
+## What's New — [Version/Date]
+
+### [Feature Name]
+[1-2 sentences: what it does for the user, not how it works]
+
+### Improvements
+- [Benefit-framed improvement]
+
+### Fixes
+- Fixed [user-visible problem]
+```
+
+### Slack Announcement
+
+Casual, scannable. Headline first, details below the fold.
+
+```markdown
+[headline — what shipped or changed]
+
+**What:** [1 sentence]
+**Why:** [1 sentence on user/business value]
+**Details:** [link to PR/doc/release notes]
+```
+
+---
+
+## Same-Event Transformation
+
+One event, four outputs. Example: shipped OAuth2 integration.
+
+**Engineering (Slack):**
+> Shipped OAuth2 — Google provider, session-based tokens, logout endpoint. PR #47.
+
+**Stakeholder (Email):**
+> We've added Google login support, reducing signup friction. Users can now authenticate with existing Google accounts instead of creating new credentials.
+
+**Customer (Release Notes):**
+> **Sign in with Google** — Log in with one click using your Google account. No new password needed.
+
+**Executive (Brief):**
+> Shipped Google SSO. Expected to reduce signup abandonment by 15-20% based on industry benchmarks. Next: Apple sign-in (2 weeks).
 
 ---
 
 ## Status Levels
 
-| Level | Color | Meaning | Action |
-|-------|-------|---------|--------|
-| **On Track** | Green | Proceeding as planned | Continue |
-| **At Risk** | Yellow | Potential delays/issues | Monitor closely, escalate if needed |
-| **Blocked** | Red | Cannot proceed | Immediate escalation required |
-| **Complete** | Blue | Done, verified | Close out, document |
+| Level | Meaning | Action |
+|-------|---------|--------|
+| **On Track** | Proceeding as planned | Continue |
+| **At Risk** | Potential delays | Monitor, escalate if needed |
+| **Blocked** | Cannot proceed | Immediate escalation |
+| **Complete** | Done, verified | Close out |
 
 ---
 
 ## Best Practices
 
-### Do
-- Be honest about blockers and risks
-- Quantify progress where possible
-- Focus on outcomes, not activities
-- Flag issues early
-- Reference tickets/PRs
-
-### Don't
-- Hide problems until last minute
-- Use vague language ("making progress")
-- Report activities without outcomes
-- Skip mentioning blockers
-- Over-promise on timelines
+- Lead with outcomes, not activities
+- Quantify progress — numbers over adjectives
+- Flag risks early, with mitigation plan
+- Match detail level to audience — execs get bullets, engineers get diffs
+- Reference tickets/PRs for traceability
+- Never hide problems — surface early, propose solutions
 
 ---
 
-## Integration with Other Skills
+## Integration
 
 | Skill | Integration |
 |-------|-------------|
 | **catchup** | Status follows catchup at session start |
 | **estimate** | Status references estimates |
 | **executing-plans** | Status shows plan progress |
-| **knowledge-accumulation** | Blockers → gotchas if recurring |
-
----
-
-## Quick Reference
-
-```bash
-# What did I do today?
-git log --oneline --since="midnight" --author="$(git config user.name)"
-
-# What's the current state?
-git status && git stash list
-
-# What's blocked?
-git branch -a --no-merged main | wc -l  # Open branches count
-
-# Generate quick report
-echo "Done: $(git log --oneline --since='midnight' | wc -l) commits"
-echo "Open: $(git status --short | wc -l) files changed"
-```
-
----
-
-Ready to generate status reports.
+| **stories** | User story format for backlog items |
+| **sprint** | Sprint progress feeds weekly summary |

@@ -25,6 +25,15 @@ Start by understanding the current project context, then ask questions one at a 
 - Present options conversationally with your recommendation and reasoning
 - Lead with your recommended option and explain why
 
+**Challenging the approach:**
+- Before finalizing, stress-test the chosen approach from opposing lenses:
+  - **User:** Does this solve a real problem? Would they actually use it?
+  - **Adversary:** How could this break? What are the edge cases and failure modes?
+  - **Maintainer:** Will someone understand this in 6 months? Is the complexity justified?
+  - **Skeptic:** Is this the simplest solution? What would you cut if you had half the time?
+- Surface concerns honestly — better to flag now than discover during implementation
+- If a lens reveals a serious gap, revisit approaches before proceeding
+
 **Presenting the design:**
 - Once you believe you understand what you're building, present the design
 - Break it into sections of 200-300 words

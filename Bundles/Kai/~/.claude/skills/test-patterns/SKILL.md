@@ -65,6 +65,47 @@ When working on a specific area, read the corresponding reference file for detai
 
 ---
 
+## Edge Case Discovery
+
+Systematic checklist for identifying *what* to test. Run through each category before writing tests.
+
+### Input Boundaries
+- Empty / null / undefined / missing required fields
+- Maximum length, minimum length, exactly at limit
+- Unicode, emoji, RTL text, special characters
+- SQL injection, XSS payloads, script tags
+- Negative numbers, zero, floating point precision
+
+### Error States
+- Network failure mid-operation (timeout, disconnect)
+- Auth expired or revoked during session
+- External service returns 500, empty body, malformed JSON
+- Disk full, memory pressure, rate limiting
+- Partial failure (3 of 5 items succeed)
+
+### User Mistakes
+- Double-click submit, rapid repeated actions
+- Back button after form submission
+- Paste unexpected content into inputs
+- Abandon mid-flow, return later
+- Use with screen reader, keyboard-only navigation
+
+### State & Timing
+- Concurrent access to same resource
+- Race conditions (two updates, last-write-wins?)
+- Stale data (cache vs source of truth)
+- Clock skew, timezone boundaries, DST transitions
+- Empty state (first use, no data yet)
+
+### Boundary Conditions
+- 0, 1, N-1, N, N+1 (off-by-one)
+- First item, last item, only item
+- Leap year, month boundaries, epoch edge cases
+- Pagination: first page, last page, empty page
+- Permissions: owner, member, guest, anonymous
+
+---
+
 ## Anti-Patterns
 
 | Anti-Pattern | Problem | Fix |
