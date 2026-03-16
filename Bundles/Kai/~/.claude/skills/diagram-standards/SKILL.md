@@ -537,21 +537,3 @@ The diagram below shows how platform services interact:
 ### Missing legend
 **Symptom:** Reader has to guess what solid vs. dashed lines mean.
 **Fix:** Include a legend whenever the diagram uses multiple line styles, colors for different meanings, or non-obvious symbols.
-```
-
-### Step 3: Verify Installation
-
-```bash
-SKILLS_DIR="${PAI_DIR:-$HOME/.config/pai}/skills"
-
-# Check both skill files exist
-echo "Checking skill files..."
-[ -f "$SKILLS_DIR/docs-architecture/SKILL.md" ] && echo "✓ docs-architecture/SKILL.md" || echo "✗ docs-architecture/SKILL.md MISSING"
-[ -f "$SKILLS_DIR/diagram-standards/SKILL.md" ] && echo "✓ diagram-standards/SKILL.md" || echo "✗ diagram-standards/SKILL.md MISSING"
-
-# Verify frontmatter
-echo ""
-echo "Verifying frontmatter..."
-head -4 "$SKILLS_DIR/docs-architecture/SKILL.md"
-echo "---"
-head -4 "$SKILLS_DIR/diagram-standards/SKILL.md"

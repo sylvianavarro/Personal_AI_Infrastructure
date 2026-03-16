@@ -1,5 +1,11 @@
+---
 name: raid
-description: Track Risks, Assumptions, Issues, and Dependencies. Use when managing project risks, surfacing blockers, or maintaining project health visibility.
+description: >
+  Maintain RAID logs (Risks, Assumptions, Issues, Dependencies). Use when tracking project risks,
+  validating assumptions, managing blockers, or documenting dependencies.
+  Trigger phrases: "RAID log", "risk register", "track risk", "dependency", "assumption".
+  Do NOT use for project status reports (use status skill).
+---
 
 # RAID Log
 

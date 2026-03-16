@@ -1,5 +1,12 @@
+---
 name: sprint
-description: Sprint planning and management. Use when starting a sprint, reviewing capacity, or tracking sprint progress.
+description: >
+  Sprint planning and management including pre-planning meetings, ticket breakdown, and launch readiness.
+  Use when starting a sprint, preparing pre-planning with tech lead, creating sprint tickets, reviewing
+  capacity, or tracking sprint progress. Trigger phrases: "sprint planning", "pre-planning meeting",
+  "sprint tickets", "sprint capacity", "sprint retro", "launch readiness".
+  Do NOT use for project status reports (use status skill) or backlog prioritization (use prioritize skill).
+---
 
 # Sprint Planning
 
@@ -74,6 +81,67 @@ Plan and manage sprint work effectively.
 **Stretch Goals (if capacity allows):**
 - [Ticket]: [Points]
 ```
+
+---
+
+## Pre-Planning Meeting (PM + Tech Lead)
+
+Hold this 60-minute meeting BEFORE sprint planning with the full team.
+
+### Agenda Template
+
+1. **Previous Sprint Assessment** (10 min)
+   - Sprint completion percentage
+   - Key deliverables achieved vs planned
+   - Carryover items with root cause
+   - Performance against SOW/benchmarks
+
+2. **Risk & Dependency Review** (10 min)
+   - Active risks with current status
+   - New risks identified
+   - Dependency resolution timeline
+   - External blocker status
+
+3. **Upcoming Sprint Scope** (20 min)
+   - Sprint goal definition (one sentence)
+   - Key deliverables and milestones
+   - Team composition and availability changes
+   - Technical focus areas
+
+4. **Work Breakdown Discussion** (15 min)
+   - High-priority items walkthrough
+   - Estimation validation
+   - Cross-team coordination needs
+   - Definition of done alignment
+
+5. **Action Items** (5 min)
+   - Items needing follow-up before planning
+   - Communication to team
+
+---
+
+## Work Breakdown by Role
+
+When creating sprint tickets, break down by team member:
+
+### Per-Member Ticket Template
+
+| Field | Content |
+|-------|---------|
+| Title | [Verb] [specific deliverable] |
+| Assignee | [Name] |
+| Points | [Fibonacci estimate] |
+| Dependencies | [Ticket IDs or "none"] |
+| Acceptance Criteria | [Testable conditions] |
+| Sprint Goal Link | [How this advances the sprint goal] |
+
+### Role-Based Focus Areas
+
+- **Tech Lead**: Architecture decisions, code review, performance validation, testing oversight
+- **Frontend Dev**: UI implementation, cross-platform parity, UX polish
+- **Backend Dev**: API optimization, service reliability, integration stability
+- **QA/Tester**: Test case execution, regression, SOW compliance validation
+- **PM/Scrum Master**: Ceremony facilitation, blocker escalation, stakeholder comms
 
 ---
 
@@ -245,6 +313,28 @@ Replace daily standups with morning intent / evening actual:
 ### Action items
 - [ ] [Action] — Owner: [Name]
 ```
+
+---
+
+## Launch Sprint Mode
+
+When the sprint targets a release or milestone deadline:
+
+### Launch Readiness Criteria
+
+- [ ] All SOW/contract performance benchmarks consistently met
+- [ ] User acceptance testing complete
+- [ ] Deployment pipeline validated
+- [ ] Rollback plan documented
+- [ ] Client sign-off obtained or scheduled
+- [ ] Post-launch monitoring in place
+
+### Scope Protection Rules
+
+- No new features after sprint midpoint
+- Bug fixes only in final 2 days
+- Scope changes require PM + Tech Lead + Client approval
+- Document any scope deferrals with rationale
 
 ---
 

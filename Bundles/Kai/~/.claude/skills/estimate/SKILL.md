@@ -1,5 +1,11 @@
+---
 name: estimate
-description: Estimate complexity and effort for tickets or features. Use when sizing work for sprint planning, providing estimates to stakeholders, or breaking down large tasks.
+description: >
+  Estimate complexity and effort using Fibonacci story points. Use when sizing stories for sprint
+  planning, providing effort estimates, or comparing implementation approaches.
+  Trigger phrases: "estimate", "story points", "sizing", "how long", "effort estimate".
+  Do NOT use for prioritization (use prioritize skill).
+---
 
 # Engineering Estimation
 

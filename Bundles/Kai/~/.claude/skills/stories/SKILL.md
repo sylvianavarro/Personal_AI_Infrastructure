@@ -1,5 +1,11 @@
+---
 name: stories
-description: Create user stories from requirements. Use when breaking down features into implementable units or preparing backlog items.
+description: >
+  Create user stories with INVEST criteria. Use when breaking down features into implementable
+  units, preparing backlog items, or defining user-facing requirements.
+  Trigger phrases: "user story", "stories", "backlog item", "as a user I want".
+  Do NOT use for acceptance criteria (use acceptance skill) or estimation (use estimate skill).
+---
 
 # User Stories
 

@@ -1,5 +1,11 @@
+---
 name: decision-record
-description: Document significant technical decisions. Use when making architectural choices, technology selections, or establishing patterns that affect system design.
+description: >
+  Create architectural decision records (ADRs). Use when making significant technical, architectural,
+  or process decisions that should be documented.
+  Trigger phrases: "document decision", "ADR", "architecture decision", "trade-off analysis".
+  Do NOT use for project status (use status skill) or risk tracking (use raid skill).
+---
 
 # Decision Record
 
@@ -301,54 +307,3 @@ We need a primary database for our new application. Requirements:
 - It's implementation detail, not architecture
 
 **Rule of thumb:** If future developers won't wonder "why did they do it this way?", you probably don't need a decision record.
-```
-
-### Step 3: Verify Installation
-
-```bash
-SKILLS_DIR="${PAI_DIR:-$HOME/.config/pai}/skills"
-
-# Check all 9 skill files exist
-for skill in prd stories acceptance estimate prioritize sprint status raid decision-record; do
-  if [ -f "$SKILLS_DIR/$skill/SKILL.md" ]; then
-    echo "✓ $skill installed"
-  else
-    echo "✗ $skill MISSING"
-  fi
-done
-```
-
----
-
-## Example Usage
-
-### Example 1: Creating a PRD
-
-```
-User: "Write a PRD for adding dark mode to our app"
-AI: [Invokes prd skill, produces structured PRD with problem statement, requirements table, success metrics]
-```
-
-### Example 2: Sprint Planning Flow
-
-```
-User: "Plan the next sprint"
-AI: [Invokes sprint skill]
-  → Reviews backlog (stories skill output)
-  → Checks estimates (estimate skill output)
-  → Reviews risks (raid skill output)
-  → Produces sprint plan with capacity allocation
-```
-
-### Example 3: Full PM Lifecycle
-
-```
-1. /prd → Define the feature
-2. /stories → Break into user stories
-3. /acceptance → Add acceptance criteria
-4. /estimate → Size each story
-5. /prioritize → RICE score the backlog
-6. /sprint → Plan the sprint
-7. /status → Report progress
-8. /raid → Track risks and blockers
-9. /decision-record → Document key decisions

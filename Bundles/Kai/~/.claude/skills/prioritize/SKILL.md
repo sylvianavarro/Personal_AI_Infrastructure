@@ -1,5 +1,11 @@
+---
 name: prioritize
-description: Prioritize work using RICE framework. Use when deciding what to work on next, ordering backlogs, or making trade-off decisions.
+description: >
+  Prioritize work using RICE framework. Use when deciding what to build next, ordering backlogs,
+  or making trade-off decisions between competing priorities.
+  Trigger phrases: "prioritize", "RICE", "MoSCoW", "what should we build", "backlog order".
+  Do NOT use for sprint planning (use sprint skill) or estimation (use estimate skill).
+---
 
 # Prioritization (RICE Framework)
 

@@ -1,5 +1,11 @@
+---
 name: acceptance
-description: Write acceptance criteria for stories. Use when defining done for user stories or creating test cases.
+description: >
+  Write acceptance criteria in Given-When-Then format. Use when defining done for user stories,
+  creating test scenarios, or validating feature completeness. Trigger phrases: "acceptance criteria",
+  "given when then", "definition of done", "test scenarios".
+  Do NOT use for writing test code (use test-patterns skill).
+---
 
 # Acceptance Criteria
 

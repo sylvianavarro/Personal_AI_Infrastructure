@@ -1,5 +1,13 @@
+---
 name: status
-description: Generate project status reports. Use when preparing for standups, stakeholder updates, or documenting current project state.
+description: >
+  Generate project status reports with multi-dimensional health assessment. Use when preparing
+  standups, stakeholder updates, project health checks, or documenting current state. Supports
+  traffic-light dashboards, executive summaries, and detailed analysis.
+  Trigger phrases: "status report", "project health", "stakeholder update", "weekly summary",
+  "health assessment", "project status".
+  Do NOT use for sprint tracking (use sprint skill) or risk-only analysis (use raid skill).
+---
 
 # Status Report
 
@@ -70,6 +78,81 @@ tail -20 ~/.claude/knowledge/decisions.md
 # Any blockers documented
 grep -i "blocker\|blocked" docs/*.md 2>/dev/null
 ```
+
+---
+
+## Project Health Assessment (6 Dimensions)
+
+For comprehensive health status. Each dimension gets a traffic light.
+
+### Dimensions
+
+**1. Technical Health**
+- Development velocity (actual vs planned), technical debt, test coverage, performance benchmarks, integration stability
+- Key question: Are we meeting technical targets?
+
+**2. Schedule Health**
+- Milestone achievement, sprint completion %, critical path status, buffer consumption, dependency resolution
+- Key question: Are we on track for delivery?
+
+**3. Team Health**
+- Capacity vs workload, velocity trends, knowledge distribution, communication effectiveness
+- Key question: Is the team operating sustainably?
+
+**4. Stakeholder Health**
+- Client responsiveness, decision velocity, requirement stability, expectation alignment
+- Key question: Are stakeholders engaged and decisions timely?
+
+**5. Risk Health**
+- Active risk count by severity, mitigation effectiveness, new vs closed ratio, contingency readiness
+- Key question: Are risks under control?
+
+**6. Financial Health**
+- Burn rate vs plan, budget remaining vs work remaining, resource utilization
+- Key question: Are we within budget?
+
+### Traffic Light Logic
+
+**GREEN (ALL must be true):**
+- Schedule variance < 5%, no unmitigated critical risks, team capacity > 80%
+- Client dependencies resolved within 48 hours, technical metrics on target, budget variance < 10%
+
+**YELLOW (ANY triggers):**
+- Schedule variance 5-15%, 1-2 critical risks with mitigation plans, team capacity 60-80%
+- Client response delays 48-72 hours, budget variance 10-20%
+
+**RED (ANY triggers):**
+- Schedule variance > 15%, unmitigated critical risks, team capacity < 60%
+- Client non-responsive > 72 hours, budget variance > 20%, launch date at risk
+
+---
+
+## Output Levels
+
+### Level 1: Traffic Light (5 seconds)
+```
+Overall: [GREEN|YELLOW|RED] — [One-line summary] — [Critical action if any]
+```
+
+### Level 2: Executive Dashboard (30 seconds)
+```markdown
+Overall: [GREEN|YELLOW|RED] | Trend: [Improving|Stable|Declining] | Confidence: [High|Med|Low]
+
+| Dimension | Status | Summary |
+|-----------|--------|---------|
+| Technical | [G/Y/R] | [brief] |
+| Schedule | [G/Y/R] | [brief] |
+| Team | [G/Y/R] | [brief] |
+| Stakeholder | [G/Y/R] | [brief] |
+| Risk | [G/Y/R] | [brief] |
+| Financial | [G/Y/R] | [brief] |
+
+**Critical Items (Top 3):**
+1. [BLOCKER/RISK]: [Description] | Owner: [Name] | Due: [Date]
+```
+
+### Level 3: Full Analysis (5 minutes)
+Use the Full Status Report template below with dimensional detail, trend analysis, and recommendations.
 
 ---
 
@@ -224,6 +307,42 @@ git branch --list | grep -v "^\*" | head -5 | sed 's/^/- /'
 | **At Risk** | Yellow | Potential delays/issues | Monitor closely, escalate if needed |
 | **Blocked** | Red | Cannot proceed | Immediate escalation required |
 | **Complete** | Blue | Done, verified | Close out, document |
+
+---
+
+## Special Situations
+
+### Client Dependency Cascade
+IF multiple client items overdue > 5 days: Flag as PRIMARY RISK, include escalation recommendation, provide scope reduction options, calculate timeline impact.
+
+### Technical Debt Avalanche
+IF velocity declining + defect rate rising: Recommend stabilization sprint, calculate long-term velocity impact, identify critical refactoring needs.
+
+### Timeline Compression
+IF buffer consumed > 50% + risks increasing: Present scope reduction options, resource augmentation analysis, realistic timeline adjustments.
+
+### Death by Thousand Cuts
+IF multiple yellow items but no single red: Perform aggregate impact analysis, recommend systemic fix rather than item-by-item response.
+
+---
+
+## Anti-Patterns
+
+**Never:**
+- Report green when dependencies are blocked
+- Hide negative trends
+- Use vague language ("might," "could," "possibly")
+- Forget to assign action owners
+- Assume best-case scenarios
+- Ignore compound risk effects
+
+**Always:**
+- Quantify impacts
+- Assign owners to actions
+- Provide timeline implications
+- Consider compound risks
+- Include confidence level
+- Validate with recent data
 
 ---
 

@@ -1,5 +1,11 @@
+---
 name: prd
-description: Create Product Requirements Documents. Use when defining new features, documenting product decisions, or aligning stakeholders on scope.
+description: >
+  Create Product Requirements Documents. Use when defining new features, documenting product
+  decisions, or aligning stakeholders on scope before implementation.
+  Trigger phrases: "PRD", "product requirements", "feature spec", "requirements document".
+  Do NOT use for user stories (use stories skill) or sprint planning (use sprint skill).
+---
 
 # Product Requirements Document (PRD)
 
