@@ -1,8 +1,8 @@
 {
-  "generated": "2026-02-14T00:00:00.000Z",
-  "totalSkills": 35,
+  "generated": "2026-03-17T00:00:00.000Z",
+  "totalSkills": 38,
   "alwaysLoadedCount": 1,
-  "deferredCount": 34,
+  "deferredCount": 37,
   "skills": {
     "core": {
       "name": "CORE",
@@ -231,16 +231,16 @@
     "sprint": {
       "name": "sprint",
       "path": "sprint/SKILL.md",
-      "fullDescription": "Plan and track sprints. Use when starting sprint planning, reviewing sprint progress, or running sprint ceremonies.",
-      "triggers": ["sprint", "planning", "capacity", "velocity", "standup", "retro", "ceremony"],
+      "fullDescription": "Sprint planning and management including pre-planning meetings, ticket breakdown, and launch readiness. Use when starting a sprint, preparing pre-planning with tech lead, creating sprint tickets, reviewing capacity, or tracking sprint progress. Do NOT use for project status reports or backlog prioritization.",
+      "triggers": ["sprint", "planning", "capacity", "velocity", "standup", "retro", "ceremony", "pre-planning", "launch-readiness"],
       "workflows": [],
       "tier": "deferred"
     },
     "status": {
       "name": "status",
       "path": "status/SKILL.md",
-      "fullDescription": "Generate project status reports. Use when preparing daily standups, weekly summaries, or stakeholder updates.",
-      "triggers": ["status", "report", "standup", "weekly", "stakeholder", "update", "progress"],
+      "fullDescription": "Generate project status reports with multi-dimensional health assessment. Use when preparing standups, stakeholder updates, project health checks, or documenting current state. Supports traffic-light dashboards, executive summaries, and detailed analysis. Do NOT use for sprint tracking or risk-only analysis.",
+      "triggers": ["status", "report", "standup", "weekly", "stakeholder", "update", "progress", "health-assessment", "traffic-light"],
       "workflows": [],
       "tier": "deferred"
     },
@@ -273,6 +273,30 @@
       "path": "diagram-standards/SKILL.md",
       "fullDescription": "Use when creating SVG diagrams for documentation — architecture diagrams, flow charts, data flow diagrams, sequence diagrams, or dashboard wireframes — ensures accessible, brand-consistent, version-controllable diagrams.",
       "triggers": ["diagram", "svg", "architecture-diagram", "flowchart", "sequence", "data-flow", "wireframe"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "client-comms": {
+      "name": "client-comms",
+      "path": "client-comms/SKILL.md",
+      "fullDescription": "Enforces professional client communication standards for email drafting, stakeholder updates, and escalation messages. Use when composing emails to clients, executives, or external stakeholders. Do NOT use for internal team chat, code review comments, or documentation writing.",
+      "triggers": ["email", "client-email", "escalation", "stakeholder-update", "draft-email", "follow-up"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "meeting-minutes": {
+      "name": "meeting-minutes",
+      "path": "meeting-minutes/SKILL.md",
+      "fullDescription": "Convert meeting transcripts into structured minutes with action items. Use when processing Zoom AI summaries, Fireflies notes, Fathom transcripts, or raw meeting transcripts. Do NOT use for generating meeting agendas or taking live notes.",
+      "triggers": ["meeting-notes", "meeting-minutes", "transcript", "action-items", "meeting-recap", "summarize-meeting"],
+      "workflows": [],
+      "tier": "deferred"
+    },
+    "resource-analysis": {
+      "name": "resource-analysis",
+      "path": "resource-analysis/SKILL.md",
+      "fullDescription": "Analyze team time and resource allocation data to produce strategic recommendations. Use when reviewing non-billable time reports, analyzing resource utilization, or preparing PMO strategic analysis. Do NOT use for project health status or individual performance reviews.",
+      "triggers": ["resource-analysis", "time-data", "non-billable", "utilization", "capacity-analysis", "resource-allocation"],
       "workflows": [],
       "tier": "deferred"
     },
