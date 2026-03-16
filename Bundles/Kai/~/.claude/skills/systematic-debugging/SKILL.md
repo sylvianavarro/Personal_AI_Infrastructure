@@ -43,6 +43,45 @@ Use for ANY technical issue:
 - You're in a hurry (rushing guarantees rework)
 - Manager wants it fixed NOW (systematic is faster than thrashing)
 
+## Phase 0: Bug Report Intake (User-Reported Issues)
+
+When a user reports "X isn't working," complete this triage BEFORE touching code:
+
+### 0a. Clarify the Report
+- **What specifically?** Get the exact field name, value, action taken, and expected vs actual result.
+- Don't assume — "data not showing" could mean: field not saved, field saved but not displayed, stale cache, wrong deploy, or field not a visible column.
+
+### 0b. Check Test Coverage First
+```bash
+# Run existing tests — do they pass?
+pytest tests/ -q  # or: npx jest --silent
+
+# Check coverage of the reported area
+pytest tests/ -k "test_MODULE" -v
+```
+
+- **All tests pass?** → Bug is in untested territory (display logic, browser cache, deploy state, field mapping). Write a test that reproduces the bug before fixing.
+- **Tests fail?** → The failing test points directly to the regression. Fix that.
+- **No tests for this area?** → Write one first. If you can't reproduce it in a test, you don't understand it yet.
+
+### 0c. Verify Production State
+```bash
+# Is production deploy current?
+curl -s "https://PRODUCTION_URL/api/health"
+# Check hosting dashboard — Railway/Vercel may have skipped deploy
+
+# Is the user on cached frontend?
+# → Ask them to hard refresh (Cmd+Shift+R)
+```
+
+### 0d. Verify the UI Displays the Field
+- Confirm the reported field is actually rendered in the table/view component.
+- Form fields ≠ table columns. Data can save correctly but be invisible if the column doesn't exist in the table.
+
+**Only after Phase 0 is complete, proceed to Phase 1.**
+
+---
+
 ## The Four Phases
 
 You MUST complete each phase before proceeding to the next.

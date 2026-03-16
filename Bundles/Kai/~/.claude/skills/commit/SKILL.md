@@ -181,6 +181,29 @@ git show --name-only
 
 ---
 
+### Step 7: Post-Push Deploy Verification
+
+**After `git push`, verify the deploy actually happened.** CI green ≠ deployed.
+
+```bash
+# 1. Check GitHub Actions CI
+gh run list --limit 1
+
+# 2. Check ALL check suites (catches Railway/Vercel stuck at queued)
+gh api repos/OWNER/REPO/commits/main/check-suites \
+  --jq '.check_suites[] | "\(.app.name // .app.slug): \(.status) / \(.conclusion)"'
+
+# 3. Curl production endpoint to confirm deploy is live
+curl -s "https://PRODUCTION_URL/api/health" | head -1
+# 401 (auth required) = alive. Connection refused/404 = not deployed.
+```
+
+**If any check suite shows `queued / null`:** the deploy was skipped. Check the hosting dashboard (Railway/Vercel) for the actual deploy status. Don't assume production is current.
+
+**Known issue (Pulse):** Cursor and Vercel GitHub Apps create check suites that never complete, causing Railway's "Wait for CI" to skip deploys. See `gotchas.md` for details.
+
+---
+
 ## Documentation Triggers
 
 | Changed Files | Documentation Action |
